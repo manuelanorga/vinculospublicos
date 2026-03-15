@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VínculosPúblicos.pe — Transparencia en contratos del Estado peruano</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Sans+3:wght@300;400;500;600&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --rojo: #C0392B;
+    --rojo-oscuro: #922B21;
+    --oro: #B7860B;
+    --oro-claro: #F4D03F;
+    --navy: #1A2744;
+    --navy-claro: #243460;
+    --gris-oscuro: #2C3E50;
+    --gris: #5D6D7E;
+    --gris-claro: #ECF0F1;
+    --blanco: #FAFAF8;
+    --borde: #D5D8DC;
+    --verde: #1E8449;
+    --amarillo: #B7860B;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: var(--blanco);
+    color: var(--gris-oscuro);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* TOPBAR */
+  .topbar {
+    background: var(--navy);
+    color: rgba(255,255,255,0.6);
+    font-size: 12px;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .topbar-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .topbar a { color: rgba(255,255,255,0.5); text-decoration: none; }
+  .topbar a:hover { color: white; }
+  .topbar-links { display: flex; gap: 20px; }
+
+  /* HEADER */
+  .header {
+    background: var(--navy);
+    padding: 20px 0 0;
+  }
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+  }
+  .logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .logo-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--rojo);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .logo-text h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: white;
+    letter-spacing: -0.5px;
+    line-height: 1;
+  }
+  .logo-text h1 span { color: var(--oro-claro); }
+  .logo-text p {
+    font-size: 11px;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-top: 3px;
+  }
+
+  /* NAV */
+  .nav {
+    display: flex;
+    gap: 0;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin-top: 4px;
+  }
+  .nav a {
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 12px 18px;
+    border-bottom: 3px solid transparent;
+    transition: all 0.15s;
+    letter-spacing: 0.3px;
+  }
+  .nav a:hover { color: white; background: rgba(255,255,255,0.05); }
+  .nav a.active { color: white; border-bottom-color: var(--rojo); }
+
+  /* HERO / SEARCH */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-claro) 100%);
+    padding: 56px 24px 48px;
+    border-bottom: 4px solid var(--rojo);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: repeating-linear-gradient(
+      90deg, transparent, transparent 80px,
+      rgba(255,255,255,0.02) 80px, rgba(255,255,255,0.02) 81px
+    );
+  }
+  .hero-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(192,57,43,0.3);
+    border: 1px solid rgba(192,57,43,0.5);
+    color: #FF8A80;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    margin-bottom: 20px;
+  }
+  .hero h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 44px);
+    color: white;
+    font-weight: 900;
+    line-height: 1.15;
+    margin-bottom: 14px;
+  }
+  .hero p {
+    color: rgba(255,255,255,0.6);
+    font-size: 16px;
+    margin-bottom: 36px;
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 300;
+  }
+
+  /* SEARCH BOX */
+  .search-container { max-width: 640px; margin: 0 auto; }
+  .search-wrap {
+    display: flex;
+    background: white;
+    border: none;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+    border-radius: 10px;
+  }
+  .search-wrap input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 16px 20px;
+    font-size: 15px;
+    font-family: 'Source Sans 3', sans-serif;
+    color: var(--gris-oscuro);
+    background: white;
+    border-radius: 10px 0 0 10px;
+  }
+  .search-wrap input::placeholder { color: #AAA; }
+  .search-wrap button {
+    background: var(--rojo);
+    color: white;
+    border: none;
+    padding: 16px 28px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'Source Sans 3', sans-serif;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    transition: background 0.15s;
+    white-space: nowrap;
+    border-radius: 0 10px 10px 0;
+  }
+  .search-wrap button:hover { background: var(--rojo-oscuro); }
+  .search-tags {
+    display: flex;
+    gap: 8px;
+    margin-top: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .search-tag {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.55);
+    font-size: 12px;
+    padding: 4px 12px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .search-tag:hover { background: rgba(255,255,255,0.15); color: white; }
+
+  /* STATS BAR */
+  .stats-bar {
+    background: var(--gris-claro);
+    border-bottom: 1px solid var(--borde);
+    padding: 0;
+  }
+  .stats-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .stat-item {
+    padding: 16px 24px;
+    border-right: 1px solid var(--borde);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 11px;
+    color: var(--gris);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 2px;
+  }
+  .stat-icon {
+    width: 32px;
+    height: 32px;
+    background: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .stat-icon svg { width: 16px; height: 16px; fill: white; }
+
+  /* MAIN LAYOUT */
+  .main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 24px;
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 40px;
+  }
+
+  /* SECTION HEADERS */
+  .section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid var(--navy);
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--navy);
+  }
+  .section-subtitle {
+    font-size: 12px;
+    color: var(--gris);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* RESULTS TABLE */
+  .results-area { margin-bottom: 40px; }
+  .results-info {
+    font-size: 13px;
+    color: var(--gris);
+    margin-bottom: 16px;
+    padding: 10px 14px;
+    background: #FEF9E7;
+    border-left: 3px solid var(--oro);
+    display: none;
+  }
+  .results-info.visible { display: block; }
+
+  .provider-table { width: 100%; border-collapse: collapse; }
+  .provider-table th {
+    text-align: left;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--gris);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 10px 14px;
+    background: #F4F6F7;
+    border-bottom: 2px solid var(--borde);
+    border-top: 1px solid var(--borde);
+  }
+  .provider-table td {
+    padding: 14px 14px;
+    border-bottom: 1px solid var(--borde);
+    vertical-align: middle;
+    font-size: 14px;
+  }
+  .provider-table tr:hover td { background: #F8F9FA; cursor: pointer; }
+  .provider-name {
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 3px;
+    font-size: 14px;
+  }
+  .provider-ruc {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 11px;
+    color: var(--gris);
+  }
+
+  /* SCORE BADGE */
+  .score-wrap { display: flex; align-items: center; gap: 10px; }
+  .score-bar-bg {
+    width: 80px;
+    height: 6px;
+    background: #E8E8E8;
+    overflow: hidden;
+  }
+  .score-bar-fill { height: 100%; }
+  .score-num {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 13px;
+    font-weight: 600;
+    min-width: 28px;
+  }
+  .score-alto { color: var(--rojo); }
+  .score-medio { color: var(--amarillo); }
+  .score-bajo { color: var(--verde); }
+  .fill-alto { background: var(--rojo); }
+  .fill-medio { background: var(--oro-claro); }
+  .fill-bajo { background: var(--verde); }
+
+  .risk-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 3px 8px;
+    text-transform: uppercase;
+  }
+  .badge-alto { background: #FDEDEC; color: var(--rojo); }
+  .badge-medio { background: #FEF9E7; color: #9A7D0A; }
+  .badge-bajo { background: #EAFAF1; color: var(--verde); }
+
+  /* DETAIL VIEW */
+  .detail-view { display: none; }
+  .detail-view.visible { display: block; }
+  .back-btn {
+    background: none;
+    border: 1px solid var(--borde);
+    color: var(--gris);
+    font-size: 13px;
+    padding: 6px 14px;
+    cursor: pointer;
+    font-family: 'Source Sans 3', sans-serif;
+    margin-bottom: 20px;
+    transition: all 0.15s;
+  }
+  .back-btn:hover { border-color: var(--navy); color: var(--navy); }
+
+  .detail-header {
+    background: var(--navy);
+    color: white;
+    padding: 24px;
+    margin-bottom: 24px;
+  }
+  .detail-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .detail-meta {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    font-family: 'Source Code Pro', monospace;
+  }
+  .detail-score-row {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .detail-score-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 52px;
+    font-weight: 900;
+    line-height: 1;
+  }
+  .detail-score-label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+  .detail-score-bar-bg {
+    width: 200px;
+    height: 8px;
+    background: rgba(255,255,255,0.15);
+  }
+  .detail-score-bar-fill { height: 100%; }
+
+  .patterns-box {
+    background: #FDEDEC;
+    border-left: 4px solid var(--rojo);
+    padding: 16px 20px;
+    margin-bottom: 24px;
+  }
+  .patterns-title {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--rojo);
+    margin-bottom: 10px;
+  }
+  .pattern-item {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(192,57,43,0.1);
+    font-size: 13px;
+    color: var(--gris-oscuro);
+  }
+  .pattern-item:last-child { border-bottom: none; }
+
+  .explicacion-box {
+    background: #F4F6F7;
+    border: 1px solid var(--borde);
+    padding: 20px;
+    margin-bottom: 24px;
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--gris-oscuro);
+  }
+  .explicacion-title {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--gris);
+    margin-bottom: 10px;
+  }
+
+  .contracts-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .contracts-table th {
+    text-align: left;
+    background: #F4F6F7;
+    padding: 8px 12px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--gris);
+    border-bottom: 2px solid var(--borde);
+  }
+  .contracts-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--borde);
+    vertical-align: top;
+  }
+  .contracts-table tr:hover td { background: #F8F9FA; }
+  .monto-cell {
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 600;
+    color: var(--navy);
+    white-space: nowrap;
+    text-align: right;
+  }
+
+  /* SIDEBAR */
+  .sidebar {}
+  .sidebar-card {
+    border: 1px solid var(--borde);
+    margin-bottom: 24px;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .sidebar-card-header {
+    background: var(--navy);
+    color: white;
+    padding: 10px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 10px 10px 0 0;
+  }
+  .sidebar-card-body { padding: 16px; }
+
+  .top-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--borde);
+    cursor: pointer;
+    transition: background 0.1s;
+  }
+  .top-item:last-child { border-bottom: none; }
+  .top-item:hover { background: #F8F9FA; }
+  .top-item-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.3;
+    max-width: 200px;
+  }
+  .top-item-score {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 13px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-left: 8px;
+  }
+
+  .fuente-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--borde);
+    font-size: 13px;
+  }
+  .fuente-item:last-child { border-bottom: none; }
+  .fuente-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--verde);
+    flex-shrink: 0;
+  }
+  .fuente-name { font-weight: 600; color: var(--navy); }
+  .fuente-date { font-size: 11px; color: var(--gris); margin-top: 1px; }
+
+  /* DISCLAIMER */
+  .disclaimer {
+    background: #FEF9E7;
+    border: 1px solid #F9E79F;
+    border-left: 4px solid var(--oro);
+    padding: 14px 16px;
+    font-size: 12px;
+    color: #7D6608;
+    line-height: 1.6;
+    border-radius: 10px;
+  }
+
+  /* LOADING */
+  .loading {
+    text-align: center;
+    padding: 40px;
+    color: var(--gris);
+    font-size: 14px;
+    display: none;
+  }
+  .loading.visible { display: block; }
+  .spinner {
+    width: 32px;
+    height: 32px;
+    border: 3px solid var(--borde);
+    border-top-color: var(--navy);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin: 0 auto 12px;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* EMPTY STATE */
+  .empty-state {
+    text-align: center;
+    padding: 60px 24px;
+    color: var(--gris);
+  }
+  .empty-state h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.4);
+    padding: 32px 24px;
+    margin-top: 40px;
+    font-size: 13px;
+  }
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: white;
+    font-weight: 700;
+  }
+  .footer-logo span { color: var(--oro-claro); }
+  .footer-links { display: flex; gap: 20px; }
+  .footer-links a { color: rgba(255,255,255,0.4); text-decoration: none; }
+  .footer-links a:hover { color: white; }
+  .footer-sources {
+    font-size: 11px;
+    color: rgba(255,255,255,0.3);
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .main { grid-template-columns: 1fr; padding: 24px 16px; gap: 24px; }
+    .stats-inner { grid-template-columns: repeat(2, 1fr); }
+    .stat-item:nth-child(2) { border-right: none; }
+    .stat-item:nth-child(3) { border-top: 1px solid var(--borde); }
+    .stat-item:nth-child(4) { border-top: 1px solid var(--borde); border-right: none; }
+  }
+
+  @media (max-width: 640px) {
+    .topbar-inner { flex-direction: column; gap: 4px; text-align: center; }
+    .topbar-links { gap: 12px; }
+    .header-inner { padding: 0 16px; }
+    .header-top { flex-direction: column; align-items: flex-start; gap: 12px; margin-bottom: 16px; }
+    .logo-text h1 { font-size: 20px; }
+    .nav { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .nav a { padding: 10px 12px; font-size: 12px; white-space: nowrap; }
+    .hero { padding: 36px 16px 32px; }
+    .hero h2 { font-size: 26px; }
+    .hero p { font-size: 14px; margin-bottom: 24px; }
+    .search-wrap button { padding: 16px 16px; font-size: 13px; }
+    .search-tags { gap: 6px; }
+    .search-tag { font-size: 11px; padding: 3px 10px; }
+    .stats-inner { grid-template-columns: repeat(2, 1fr); }
+    .stat-item { padding: 12px 14px; }
+    .stat-num { font-size: 18px; }
+    .stat-label { font-size: 10px; }
+    .stat-icon { width: 26px; height: 26px; }
+    .main { padding: 20px 16px; gap: 20px; }
+    .section-header { flex-direction: column; align-items: flex-start; gap: 4px; }
+    .provider-table th:last-child, .provider-table td:last-child { display: none; }
+    .provider-table td { padding: 12px 10px; }
+    .provider-name { font-size: 13px; }
+    .detail-header { padding: 16px; }
+    .detail-name { font-size: 18px; }
+    .detail-score-row { flex-direction: column; gap: 12px; }
+    .detail-score-num { font-size: 40px; }
+    .detail-score-bar-bg { width: 100%; }
+    .contracts-table th:nth-child(2), .contracts-table td:nth-child(2) { display: none; }
+    .contracts-table th:nth-child(3), .contracts-table td:nth-child(3) { display: none; }
+    footer { padding: 24px 16px; }
+    .footer-inner { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .footer-links { flex-wrap: wrap; gap: 12px; }
+  }
+
+  @media (max-width: 400px) {
+    .hero h2 { font-size: 22px; }
+    .search-wrap { flex-direction: column; border-radius: 10px; }
+    .search-wrap input { border-radius: 10px 10px 0 0; }
+    .search-wrap button { border-radius: 0 0 10px 10px; text-align: center; }
+  }
+
+  /* DONACION */
+  .donate-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #C0392B, #922B21);
+    color: white;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 9px 18px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    letter-spacing: 0.3px;
+    text-decoration: none;
+    transition: all 0.2s;
+    box-shadow: 0 2px 8px rgba(192,57,43,0.35);
+    white-space: nowrap;
+  }
+  .donate-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(192,57,43,0.45);
+    background: linear-gradient(135deg, #D44333, #C0392B);
+  }
+  .donate-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+  /* MODAL */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(10,18,40,0.75);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal-box {
+    background: white;
+    border-radius: 14px;
+    max-width: 480px;
+    width: 100%;
+    overflow: hidden;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+    animation: modalIn 0.25s ease;
+  }
+  @keyframes modalIn {
+    from { opacity: 0; transform: translateY(20px) scale(0.97); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  .modal-header {
+    background: var(--navy);
+    padding: 28px 28px 20px;
+    text-align: center;
+    position: relative;
+  }
+  .modal-close {
+    position: absolute;
+    top: 14px; right: 16px;
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.5);
+    font-size: 22px;
+    cursor: pointer;
+    line-height: 1;
+    padding: 4px;
+    transition: color 0.15s;
+  }
+  .modal-close:hover { color: white; }
+  .modal-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 6px;
+  }
+  .modal-logo span { color: var(--oro-claro); }
+  .modal-tagline {
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    font-style: italic;
+  }
+  .modal-body { padding: 24px 28px 28px; }
+  .modal-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--navy);
+    text-align: center;
+    margin-bottom: 6px;
+  }
+  .modal-subtitle {
+    font-size: 13px;
+    color: var(--gris);
+    text-align: center;
+    margin-bottom: 22px;
+    line-height: 1.5;
+  }
+  .modal-amounts {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  .amount-btn {
+    background: var(--gris-claro);
+    border: 2px solid transparent;
+    border-radius: 8px;
+    padding: 12px 6px;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--navy);
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.15s;
+  }
+  .amount-btn:hover { border-color: var(--navy); background: #EAF0F8; }
+  .amount-btn.selected { border-color: var(--navy); background: var(--navy); color: white; }
+  .amount-custom {
+    width: 100%;
+    border: 2px solid var(--borde);
+    border-radius: 8px;
+    padding: 11px 14px;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 14px;
+    color: var(--gris-oscuro);
+    margin-bottom: 16px;
+    outline: none;
+    transition: border-color 0.15s;
+  }
+  .amount-custom:focus { border-color: var(--navy); }
+  .modal-donate-btn {
+    width: 100%;
+    background: var(--rojo);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 14px;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s;
+    letter-spacing: 0.3px;
+    margin-bottom: 14px;
+  }
+  .modal-donate-btn:hover { background: var(--rojo-oscuro); }
+  .modal-disclaimer {
+    font-size: 11px;
+    color: var(--gris);
+    text-align: center;
+    line-height: 1.5;
+  }
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <span>Datos actualizados al 28 de febrero de 2026 · Fuente: OSCE, SUNAT, Contraloría</span>
+    <div class="topbar-links">
+      <a href="#metodologia">Metodología</a>
+      <a href="#fuentes">Fuentes</a>
+      <a href="mailto:contacto@vinculospublicos.pe">Contacto</a>
+    </div>
+    <button class="donate-btn" onclick="abrirDonacion()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      Apoya la causa
+    </button>
+  </div>
+</div>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-inner">
+    <div class="header-top">
+      <div class="logo-wrap">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="28" height="28">
+            <circle cx="6" cy="6" r="3" fill="white"/>
+            <circle cx="18" cy="6" r="3" fill="rgba(255,255,255,0.6)"/>
+            <circle cx="12" cy="18" r="3" fill="rgba(255,255,255,0.8)"/>
+            <line x1="6" y1="6" x2="18" y2="6" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+            <line x1="6" y1="6" x2="12" y2="18" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+            <line x1="18" y1="6" x2="12" y2="18" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <h1>Vínculos<span>Públicos</span>.pe</h1>
+          <p>Mapa de contratos del Estado peruano</p>
+        </div>
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="#" class="active">Inicio</a>
+      <a href="#buscar">Buscador</a>
+      <a href="#metodologia">Metodología</a>
+      <a href="#fuentes">Fuentes de datos</a>
+    </nav>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">Beta · Datos públicos del Estado peruano</div>
+    <h2>¿Quién gana contratos<br>del Estado, y cómo?</h2>
+    <p>Cruzamos datos de OSCE, SUNAT y Contraloría para detectar patrones inusuales en la adjudicación de contratos públicos peruanos.</p>
+    <div class="search-container">
+      <div class="search-wrap">
+        <input type="text" id="searchInput" placeholder="Busca una empresa, RUC o proveedor del Estado..." />
+        <button onclick="buscar()">Buscar →</button>
+      </div>
+      <div class="search-tags">
+        <span class="search-tag" onclick="buscarTag('CRAP')">CRAP Ingeniería</span>
+        <span class="search-tag" onclick="buscarTag('ENOTRIA')">Enotria S.A.</span>
+        <span class="search-tag" onclick="buscarTag('HIDROSTAL')">Hidrostal</span>
+        <span class="search-tag" onclick="buscarTag('NETO')">Neto Consultores</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <div class="stat-icon">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
+      </div>
+      <div>
+        <div class="stat-num">136,474</div>
+        <div class="stat-label">Contratos analizados</div>
+      </div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-icon">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <div>
+        <div class="stat-num">60,140</div>
+        <div class="stat-label">Proveedores únicos</div>
+      </div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-icon">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+      </div>
+      <div>
+        <div class="stat-num">2,872</div>
+        <div class="stat-label">Entidades del Estado</div>
+      </div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-icon">
+        <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+      </div>
+      <div>
+        <div class="stat-num">S/. 210B</div>
+        <div class="stat-label">Total adjudicado 2023–2025</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+  <div class="col-left">
+
+    <!-- RESULTS AREA -->
+    <div class="results-area" id="resultsArea">
+      <div class="section-header">
+        <span class="section-title" id="resultsTitle">Mayor índice de patrones inusuales</span>
+        <span class="section-subtitle">2023–2025</span>
+      </div>
+      <div class="results-info" id="resultsInfo"></div>
+      <div class="loading" id="loadingSpinner">
+        <div class="spinner"></div>
+        Consultando base de datos...
+      </div>
+      <div id="tableContainer"></div>
+    </div>
+
+    <!-- DETAIL VIEW -->
+    <div class="detail-view" id="detailView">
+      <button class="back-btn" onclick="volverLista()">← Volver a resultados</button>
+      <div class="detail-header">
+        <div class="detail-name" id="detailName">—</div>
+        <div class="detail-meta" id="detailMeta">—</div>
+        <div class="detail-score-row">
+          <div class="detail-score-num" id="detailScore">—</div>
+          <div>
+            <div class="detail-score-label">Índice de patrones inusuales</div>
+            <div class="detail-score-bar-bg">
+              <div class="detail-score-bar-fill" id="detailScoreBar"></div>
+            </div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.4);margin-top:6px">
+              No implica acusación · Solo análisis estadístico
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="patterns-box" id="patternsBox" style="display:none">
+        <div class="patterns-title">Patrones detectados por IA</div>
+        <div id="patternsList"></div>
+      </div>
+
+      <div class="explicacion-box" id="explicacionBox" style="display:none">
+        <div class="explicacion-title">Análisis de la IA</div>
+        <div id="explicacionText"></div>
+      </div>
+
+      <div class="disclaimer" style="margin-bottom:24px">
+        <strong>Aviso legal:</strong> Este análisis es exclusivamente estadístico y se basa en datos de fuentes públicas oficiales del Estado Peruano (OSCE, SUNAT, Contraloría). La presencia de patrones inusuales no constituye acusación, imputación ni determinación de responsabilidad penal, civil o administrativa de ningún tipo.
+      </div>
+
+      <div class="section-header">
+        <span class="section-title">Contratos adjudicados</span>
+        <span class="section-subtitle" id="contratosCount">—</span>
+      </div>
+      <div id="contratosContainer">
+        <div class="loading visible" id="contratosLoading">
+          <div class="spinner"></div>
+          Cargando contratos...
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+
+    <div class="sidebar-card">
+      <div class="sidebar-card-header">Top 5 — Mayor riesgo detectado</div>
+      <div class="sidebar-card-body" id="topRiesgoList">
+        <div style="text-align:center;padding:20px;color:#999;font-size:13px">Cargando...</div>
+      </div>
+    </div>
+
+    <div class="sidebar-card" id="fuentes">
+      <div class="sidebar-card-header">Fuentes de datos activas</div>
+      <div class="sidebar-card-body">
+        <div class="fuente-item">
+          <div class="fuente-dot"></div>
+          <div>
+            <div class="fuente-name">OSCE — Contrataciones</div>
+            <div class="fuente-date">contratacionesabiertas.osce.gob.pe</div>
+          </div>
+        </div>
+        <div class="fuente-item">
+          <div class="fuente-dot"></div>
+          <div>
+            <div class="fuente-name">SUNAT — RUC Proveedores</div>
+            <div class="fuente-date">sunat.gob.pe</div>
+          </div>
+        </div>
+        <div class="fuente-item">
+          <div class="fuente-dot"></div>
+          <div>
+            <div class="fuente-name">Datos Abiertos Perú</div>
+            <div class="fuente-date">datosabiertos.gob.pe</div>
+          </div>
+        </div>
+        <div class="fuente-item">
+          <div class="fuente-dot" style="background:#E67E22"></div>
+          <div>
+            <div class="fuente-name">Contraloría — DDJJ</div>
+            <div class="fuente-date">Próximamente</div>
+          </div>
+        </div>
+        <div class="fuente-item">
+          <div class="fuente-dot" style="background:#E67E22"></div>
+          <div>
+            <div class="fuente-name">JNE — Financiamiento</div>
+            <div class="fuente-date">Próximamente</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-card" id="metodologia">
+      <div class="sidebar-card-header">Cómo funciona</div>
+      <div class="sidebar-card-body" style="font-size:13px;color:var(--gris-oscuro);line-height:1.6">
+        <p style="margin-bottom:10px">VínculosPúblicos.pe cruza automáticamente datos de contratos del Estado (OSCE) con datos de registro de empresas (SUNAT) para identificar patrones estadísticamente inusuales.</p>
+        <p style="margin-bottom:10px">Una IA analiza cada proveedor y genera un <strong>índice de patrones inusuales</strong> (0–100). No acusa — señala casos que merecen revisión ciudadana o periodística.</p>
+        <p>Patrones que detectamos: empresas recién constituidas, concentración de contratos, ausencia de competencia, precios fuera de rango.</p>
+      </div>
+    </div>
+
+    <div class="disclaimer">
+      <strong>VínculosPúblicos.pe</strong> es una herramienta de transparencia ciudadana. Todos los datos provienen de fuentes oficiales públicas del Estado Peruano. Ley N° 27806 de Transparencia y Acceso a la Información Pública.
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">Vínculos<span>Públicos</span>.pe</div>
+      <div style="font-size:12px;margin-top:4px">Transparencia en contratos del Estado peruano</div>
+    </div>
+    <div class="footer-links">
+      <a href="#metodologia">Metodología</a>
+      <a href="#fuentes">Fuentes</a>
+      <a href="mailto:contacto@vinculospublicos.pe">Contacto</a>
+    </div>
+    <button class="donate-btn" onclick="abrirDonacion()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      Apoya la causa
+    </button>
+  </div>
+  <div class="footer-inner footer-sources">
+    Datos: OSCE (contratacionesabiertas.osce.gob.pe) · SUNAT · Plataforma Nacional de Datos Abiertos (datosabiertos.gob.pe) · Contraloría General de la República · Período: 2023–2025
+  </div>
+</footer>
+
+<script>
+const API = "https://script.google.com/macros/s/AKfycbxHOHFphZ-CktEMNCDVF9Yg591ppPhqEwNO3BLAksmtfsgdI0OeLNJkAWUJBO_r_Wz99g/exec";
+
+let currentProveedores = [];
+
+// ── SCORE HELPERS ──────────────────────────────────────────────
+function scoreClass(s) {
+  if (!s) return 'bajo';
+  return s >= 65 ? 'alto' : s >= 40 ? 'medio' : 'bajo';
+}
+function scoreColor(s) {
+  const c = scoreClass(s);
+  return c === 'alto' ? '#C0392B' : c === 'medio' ? '#B7860B' : '#1E8449';
+}
+function badgeClass(s) {
+  const c = scoreClass(s);
+  return `badge-${c}`;
+}
+function badgeLabel(s) {
+  const c = scoreClass(s);
+  return c === 'alto' ? 'Alto' : c === 'medio' ? 'Medio' : 'Bajo';
+}
+function formatMonto(m) {
+  if (!m) return '—';
+  return 'S/. ' + parseFloat(m).toLocaleString('es-PE', {minimumFractionDigits: 0, maximumFractionDigits: 0});
+}
+
+// ── RENDER TABLE ───────────────────────────────────────────────
+function renderTable(proveedores) {
+  if (!proveedores || proveedores.length === 0) {
+    document.getElementById('tableContainer').innerHTML = `
+      <div class="empty-state">
+        <h3>Sin resultados</h3>
+        <p>No encontramos proveedores con ese criterio de búsqueda.</p>
+      </div>`;
+    return;
+  }
+  currentProveedores = proveedores;
+  let html = `<table class="provider-table">
+    <thead>
+      <tr>
+        <th>Proveedor</th>
+        <th>Índice de riesgo</th>
+        <th>Nivel</th>
+      </tr>
+    </thead>
+    <tbody>`;
+  proveedores.forEach((p, i) => {
+    const s = p.score || 0;
+    const pct = s + '%';
+    html += `<tr onclick="verDetalle(${i})">
+      <td>
+        <div class="provider-name">${p.nombre || '—'}</div>
+        <div class="provider-ruc">RUC: ${p.ruc || '—'}</div>
+      </td>
+      <td>
+        <div class="score-wrap">
+          <div class="score-bar-bg">
+            <div class="score-bar-fill fill-${scoreClass(s)}" style="width:${pct}"></div>
+          </div>
+          <span class="score-num score-${scoreClass(s)}">${s || '—'}</span>
+        </div>
+      </td>
+      <td><span class="risk-badge ${badgeClass(s)}">${badgeLabel(s)}</span></td>
+    </tr>`;
+  });
+  html += '</tbody></table>';
+  document.getElementById('tableContainer').innerHTML = html;
+}
+
+// ── VER DETALLE ────────────────────────────────────────────────
+function verDetalle(i) {
+  const p = currentProveedores[i];
+  document.getElementById('resultsArea').style.display = 'none';
+  const detail = document.getElementById('detailView');
+  detail.classList.add('visible');
+
+  const s = p.score || 0;
+  document.getElementById('detailName').textContent = p.nombre || '—';
+  document.getElementById('detailMeta').textContent = `RUC: ${p.ruc || '—'}`;
+  document.getElementById('detailScore').textContent = s || '—';
+  document.getElementById('detailScore').style.color = scoreColor(s);
+  const bar = document.getElementById('detailScoreBar');
+  bar.style.width = s + '%';
+  bar.style.background = scoreColor(s);
+
+  if (p.explicacion) {
+    document.getElementById('explicacionBox').style.display = 'block';
+    document.getElementById('explicacionText').textContent = p.explicacion;
+  }
+
+  cargarContratos(p.ruc);
+  window.scrollTo(0, 0);
+}
+
+function volverLista() {
+  document.getElementById('detailView').classList.remove('visible');
+  document.getElementById('resultsArea').style.display = 'block';
+  document.getElementById('contratosContainer').innerHTML = '';
+}
+
+// ── CARGAR CONTRATOS ───────────────────────────────────────────
+async function cargarContratos(ruc) {
+  document.getElementById('contratosLoading') && (document.getElementById('contratosLoading').className = 'loading visible');
+  try {
+    const res = await fetch(`${API}?action=contratos&ruc=${encodeURIComponent(ruc)}`);
+    const contratos = await res.json();
+    if (contratos.error) throw new Error(contratos.error);
+
+    document.getElementById('contratosCount').textContent = `${contratos.length} contratos`;
+
+    if (!contratos.length) {
+      document.getElementById('contratosContainer').innerHTML = '<p style="color:#999;font-size:13px;padding:16px 0">Sin contratos registrados en el período analizado.</p>';
+      return;
+    }
+
+    let html = `<table class="contracts-table">
+      <thead><tr>
+        <th>Descripción</th>
+        <th>Entidad</th>
+        <th>Fecha</th>
+        <th style="text-align:right">Monto</th>
+      </tr></thead><tbody>`;
+    contratos.forEach(c => {
+      html += `<tr>
+        <td style="max-width:280px;font-size:13px">${c.descripcion || '—'}</td>
+        <td style="font-size:12px;color:var(--gris)">${c.entidad || '—'}<br><span style="color:#AAA">${c.departamento || ''}</span></td>
+        <td style="font-size:12px;color:var(--gris);white-space:nowrap">${c.fecha ? c.fecha.split('T')[0] : '—'}</td>
+        <td class="monto-cell">${formatMonto(c.monto)}</td>
+      </tr>`;
+    });
+    html += '</tbody></table>';
+    document.getElementById('contratosContainer').innerHTML = html;
+  } catch(e) {
+    document.getElementById('contratosContainer').innerHTML = `<p style="color:var(--rojo);font-size:13px;padding:16px 0">Error al cargar contratos: ${e.message}</p>`;
+  }
+}
+
+// ── BUSCAR ─────────────────────────────────────────────────────
+async function buscar() {
+  const q = document.getElementById('searchInput').value.trim();
+  if (!q) return;
+  mostrarLoading();
+  document.getElementById('resultsTitle').textContent = `Resultados para "${q}"`;
+  document.getElementById('resultsInfo').className = 'results-info visible';
+  document.getElementById('resultsInfo').textContent = 'Mostrando proveedores que coinciden con tu búsqueda. Haz clic en cualquier fila para ver el análisis completo.';
+  try {
+    const res = await fetch(`${API}?action=buscar&q=${encodeURIComponent(q)}`);
+    const data = await res.json();
+    ocultarLoading();
+    renderTable(data.error ? [] : data);
+  } catch(e) {
+    ocultarLoading();
+    renderTable([]);
+  }
+}
+
+function buscarTag(q) {
+  document.getElementById('searchInput').value = q;
+  buscar();
+}
+
+document.getElementById('searchInput').addEventListener('keydown', e => {
+  if (e.key === 'Enter') buscar();
+});
+
+// ── TOP RIESGO ─────────────────────────────────────────────────
+async function cargarTopRiesgo() {
+  try {
+    const res = await fetch(`${API}?action=top-riesgo`);
+    const top = await res.json();
+    if (top.error || !top.length) {
+      document.getElementById('topRiesgoList').innerHTML = '<p style="font-size:13px;color:#999;text-align:center;padding:12px">Sin datos disponibles</p>';
+      renderTable([]);
+      return;
+    }
+    let html = '';
+    top.forEach((p, i) => {
+      const s = p.score || 0;
+      html += `<div class="top-item" onclick="verDetalleTop(${i})">
+        <div class="top-item-name">${p.nombre}</div>
+        <div class="top-item-score score-${scoreClass(s)}">${s}/100</div>
+      </div>`;
+    });
+    document.getElementById('topRiesgoList').innerHTML = html;
+    ocultarLoading();
+    renderTable(top);
+    window._topData = top;
+  } catch(e) {
+    document.getElementById('topRiesgoList').innerHTML = '<p style="font-size:13px;color:#999;text-align:center;padding:12px">Error al cargar</p>';
+    ocultarLoading();
+  }
+}
+
+function verDetalleTop(i) {
+  if (window._topData) {
+    currentProveedores = window._topData;
+    verDetalle(i);
+  }
+}
+
+function mostrarLoading() {
+  document.getElementById('loadingSpinner').className = 'loading visible';
+  document.getElementById('tableContainer').innerHTML = '';
+}
+function ocultarLoading() {
+  document.getElementById('loadingSpinner').className = 'loading';
+}
+
+// ── INIT ───────────────────────────────────────────────────────
+cargarTopRiesgo();
+
+// TYPEWRITER
+(function() {
+  const input = document.getElementById('searchInput');
+  const frases = [
+    'Busca una empresa proveedora del Estado...',
+    'Escribe un RUC para ver sus contratos...',
+    'Ej: CRAP Ingenieria y Construccion...',
+    'Ej: Enotria S.A. - impresion SEDAPAL...',
+    'Busca una municipalidad o entidad...',
+  ];
+  let fi = 0, ci = 0, borrando = false;
+  function typeWriter() {
+    if (document.activeElement === input) { setTimeout(typeWriter, 500); return; }
+    const frase = frases[fi];
+    if (!borrando) {
+      input.placeholder = frase.slice(0, ci + 1);
+      ci++;
+      if (ci === frase.length) { borrando = true; setTimeout(typeWriter, 2000); return; }
+      setTimeout(typeWriter, 55);
+    } else {
+      input.placeholder = frase.slice(0, ci - 1);
+      ci--;
+      if (ci === 0) { borrando = false; fi = (fi + 1) % frases.length; setTimeout(typeWriter, 400); return; }
+      setTimeout(typeWriter, 30);
+    }
+  }
+  setTimeout(typeWriter, 1200);
+})();
+
+</script>
+
+
+<!-- MODAL DONACION -->
+<div class="modal-overlay" id="donacionModal" onclick="cerrarSiOverlay(event)">
+  <div class="modal-box">
+    <div class="modal-header">
+      <button class="modal-close" onclick="cerrarDonacion()">×</button>
+      <div class="modal-logo">Vínculos<span>Públicos</span>.pe</div>
+      <div class="modal-tagline">Transparencia ciudadana sin publicidad</div>
+    </div>
+    <div class="modal-body">
+      <div class="modal-title">Nosotros seguimos el dinero.</div>
+      <div class="modal-title" style="color:var(--rojo);margin-bottom:8px">Tú lo haces posible.</div>
+      <div class="modal-subtitle">Esta herramienta es gratuita y sin fines de lucro.<br>Tu aporte mantiene los servidores y el análisis activos.</div>
+      <div class="modal-amounts">
+        <button class="amount-btn" onclick="seleccionarMonto(this, 10)">S/. 10</button>
+        <button class="amount-btn selected" onclick="seleccionarMonto(this, 25)">S/. 25</button>
+        <button class="amount-btn" onclick="seleccionarMonto(this, 50)">S/. 50</button>
+        <button class="amount-btn" onclick="seleccionarMonto(this, 100)">S/. 100</button>
+      </div>
+      <input class="amount-custom" id="montoCustom" type="number" placeholder="Otro monto (S/.)" min="1" oninput="deseleccionarBotones()" />
+      <button class="modal-donate-btn" onclick="procesarDonacion()">
+        ❤️ &nbsp;Apoyar con S/. <span id="montoSeleccionado">25</span>
+      </button>
+      <div class="modal-disclaimer">
+        Pago seguro procesado por Niubiz · VínculosPúblicos.pe no almacena datos de tarjetas.<br>
+        Todos los fondos se destinan a infraestructura y desarrollo de la plataforma.
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

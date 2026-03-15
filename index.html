@@ -1016,10 +1016,7 @@
         </div>
       </div>
 
-      <div class="patterns-box" id="patternsBox" style="display:none">
-        <div class="patterns-title">Patrones detectados por IA</div>
-        <div id="patternsList"></div>
-      </div>
+      <div id="dimsBox" style="display:none;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px"></div>
 
       <div class="explicacion-box" id="explicacionBox" style="display:none">
         <div class="explicacion-title">Análisis de la IA</div>
@@ -1218,6 +1215,25 @@ function verDetalle(i) {
   const bar = document.getElementById('detailScoreBar');
   bar.style.width = s + '%';
   bar.style.background = scoreColor(s);
+
+  // Mostrar dimensiones si existen
+  const dimsBox = document.getElementById('dimsBox');
+  if (p.dims && dimsBox) {
+    dimsBox.style.display = 'grid';
+    const iconos = { antiguedad: '📅', concentracion: '🏢', volumen: '💰', competencia: '⚖️' };
+    const labels = { antiguedad: 'Antigüedad', concentracion: 'Concentración', volumen: 'Volumen', competencia: 'Competencia' };
+    const colores = { alto: {bg:'#FCEBEB',text:'#A32D2D',border:'#E24B4A'}, medio: {bg:'#FAEEDA',text:'#633806',border:'#EF9F27'}, bajo: {bg:'#EAF3DE',text:'#27500A',border:'#639922'} };
+    dimsBox.innerHTML = Object.keys(p.dims).map(key => {
+      const d = p.dims[key];
+      const niv = d.nivel || 'bajo';
+      const c = colores[niv] || colores.bajo;
+      return '<div style="background:var(--gris-claro);border-radius:8px;padding:14px 16px;border-left:3px solid ' + c.border + '">' +
+        '<div style="font-size:10px;color:var(--gris);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:6px">' + (iconos[key]||'') + ' ' + labels[key] + '</div>' +
+        '<div style="font-size:17px;font-weight:600;color:' + c.border + ';line-height:1.2;margin-bottom:4px">' + (d.valor||'—') + '</div>' +
+        '<div style="font-size:11px;display:inline-block;background:' + c.bg + ';color:' + c.text + ';padding:2px 8px;border-radius:4px">' + (d.alerta||'') + '</div>' +
+        '</div>';
+    }).join('');
+  }
 
   if (p.explicacion) {
     document.getElementById('explicacionBox').style.display = 'block';

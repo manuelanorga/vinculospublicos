@@ -451,7 +451,7 @@
         <div class="impact-card-icon red">🔍</div>
         <div>
           <div class="impact-card-title">Análisis con inteligencia artificial</div>
-          <div class="impact-card-desc">Cada proveedor analizado cuesta $0.003 en IA. Con tu donación podemos analizar miles más y encontrar más patrones inusuales.</div>
+          <div class="impact-card-desc">Cada sol que aportas se convierte directamente en análisis. Tenemos 59,000 proveedores sin examinar — tu donación nos acerca a tener el mapa más completo de contrataciones públicas del Perú.</div>
         </div>
       </div>
       <div class="impact-card">
@@ -493,12 +493,15 @@
 
     <!-- TESTIMONIAL -->
     <div class="testimonial">
-      <div class="testimonial-text">"Herramientas como esta son esenciales para el periodismo de investigación en el Perú. Democratizan el acceso a datos que antes solo estaban disponibles para equipos con recursos."</div>
-      <div class="testimonial-author">— Periodista de investigación, Lima</div>
+      <div class="testimonial-text">"Las webs del Estado son confusas, fragmentadas y difíciles de navegar. El ciudadano común no sabe dónde buscar — y cuando encuentra algo, no puede interpretarlo. VínculosPúblicos unifica esa información, la visualiza y la hace legible para cualquiera. Eso es lo que el periodismo de investigación y la ciudadanía peruana necesitan."</div>
+      <div class="testimonial-author">— Manu Marín · Emprendedor digital, comunicador y fundador de VínculosPúblicos.org</div>
     </div>
 
     <!-- FAQ -->
-    <div style="margin-top: 8px;">
+    <div style="margin-top: 32px; margin-bottom: 16px;">
+      <div style="font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--navy); margin-bottom: 16px;">Preguntas frecuentes</div>
+    </div>
+    <div style="margin-top: 0;">
       <div class="faq-item" onclick="toggleFaq(this)">
         <div class="faq-q">¿Cómo se usa mi donación? <em class="faq-chevron">▾</em></div>
         <div class="faq-a">El 80% va directo al análisis de más proveedores con IA. El 20% restante cubre infraestructura (servidor, dominio, base de datos). No tenemos empleados pagados — somos un proyecto ciudadano.</div>
@@ -520,20 +523,6 @@
 
   <!-- RIGHT — DONATION FORM -->
   <div class="donation-box">
-
-    <!-- PROGRESS -->
-    <div class="progress-wrap">
-      <div class="progress-header">
-        <div class="progress-raised">S/. 0 recaudados</div>
-        <div class="progress-goal">Meta: S/. 500</div>
-      </div>
-      <div class="progress-bar-bg">
-        <div class="progress-bar-fill" id="progressFill"></div>
-      </div>
-      <div class="progress-meta">Sé el primero en apoyar este proyecto</div>
-    </div>
-
-    <hr class="divider">
 
     <div class="donation-box-title">Elige tu aporte</div>
     <div class="donation-box-sub">Cada sol ayuda a analizar más contratos del Estado</div>
@@ -586,11 +575,6 @@
   </div>
 </div>
 
-<!-- FAQ SECTION -->
-<div class="faq" style="padding-top:0">
-  <h2>Preguntas frecuentes</h2>
-</div>
-
 <!-- FOOTER -->
 <footer>
   <p>VínculosPúblicos.org · Transparencia en contratos del Estado peruano · <a href="index.html">Volver al inicio</a></p>
@@ -600,11 +584,6 @@
 <script>
   let currentFreq = 'once';
   let currentAmount = 30;
-
-  // Animate progress bar
-  setTimeout(() => {
-    document.getElementById('progressFill').style.width = '3%';
-  }, 500);
 
   function setFreq(freq, btn) {
     currentFreq = freq;

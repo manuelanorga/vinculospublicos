@@ -889,7 +889,7 @@
 <div class="header">
   <div class="header-inner">
     <div class="header-top">
-      <div class="logo-wrap">
+      <div class="logo-wrap" style="cursor:pointer" onclick="volverHome()">
         <div class="logo-icon">
           <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="28" height="28">
             <circle cx="6" cy="6" r="3" fill="white"/>
@@ -907,7 +907,7 @@
       </div>
     </div>
     <nav class="nav">
-      <a href="#" class="active">Inicio</a>
+      <a href="#" class="active" onclick="volverHome();return false;">Inicio</a>
       <a href="#buscar">Buscador</a>
       <a href="#metodologia">Metodología</a>
       <a href="#fuentes">Fuentes de datos</a>
@@ -1045,8 +1045,15 @@
   <div class="sidebar">
 
     <div class="sidebar-card">
-      <div class="sidebar-card-header">Top 5 — Mayor riesgo detectado</div>
+      <div class="sidebar-card-header">Top 10 — Mayor riesgo detectado</div>
       <div class="sidebar-card-body" id="topRiesgoList">
+        <div style="text-align:center;padding:20px;color:#999;font-size:13px">Cargando...</div>
+      </div>
+    </div>
+
+    <div class="sidebar-card">
+      <div class="sidebar-card-header">Top 10 — Menor riesgo detectado</div>
+      <div class="sidebar-card-body" id="menorRiesgoList">
         <div style="text-align:center;padding:20px;color:#999;font-size:13px">Cargando...</div>
       </div>
     </div>
@@ -1359,7 +1366,58 @@ function ocultarLoading() {
 }
 
 // ── INIT ───────────────────────────────────────────────────────
+// MENOR RIESGO
+async function cargarMenorRiesgo() {
+  try {
+    const res = await fetch(`${API}?action=menor-riesgo`);
+    const data = await res.json();
+    if (!data || data.error || !data.length) {
+      document.getElementById('menorRiesgoList').innerHTML = '<p style="font-size:13px;color:#999;text-align:center;padding:12px">Sin datos</p>';
+      return;
+    }
+    let html = '';
+    data.forEach((p, i) => {
+      const s = p.score || 0;
+      html += `<div class="top-item" onclick="verDetalleTop2(${i})">
+        <div class="top-item-name">${p.nombre}</div>
+        <div class="top-item-score score-${scoreClass(s)}">${s}/100</div>
+      </div>`;
+    });
+    document.getElementById('menorRiesgoList').innerHTML = html;
+    window._menorData = data;
+  } catch(e) {
+    document.getElementById('menorRiesgoList').innerHTML = '<p style="font-size:13px;color:#999;text-align:center;padding:12px">Error al cargar</p>';
+  }
+}
+
+function verDetalleTop2(i) {
+  if (window._menorData) {
+    currentProveedores = window._menorData;
+    verDetalle(i);
+  }
+}
+
+function volverHome() {
+  document.getElementById('detailView').classList.remove('visible');
+  document.getElementById('resultsArea').style.display = 'block';
+  document.getElementById('resultsTitle').textContent = 'Mayor índice de patrones inusuales';
+  document.getElementById('resultsInfo').className = 'results-info';
+  document.getElementById('searchInput').value = '';
+  window.scrollTo(0, 0);
+}
+
 cargarTopRiesgo();
+cargarMenorRiesgo();
+
+// VOLVER HOME
+function volverHome() {
+  document.getElementById('detailView').classList.remove('visible');
+  document.getElementById('resultsArea').style.display = 'block';
+  document.getElementById('resultsTitle').textContent = 'Mayor índice de patrones inusuales';
+  document.getElementById('resultsInfo').className = 'results-info';
+  document.getElementById('searchInput').value = '';
+  window.scrollTo(0, 0);
+}
 
 // TYPEWRITER
 (function() {

@@ -11,7 +11,17 @@
   gtag('config', 'G-740EN71M5Z');
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VínculosPúblicos.pe — Transparencia en contratos del Estado peruano</title>
+<title>VínculosPúblicos.org — Contratos del Estado peruano con IA</title>
+<meta name="description" content="Detectamos patrones inusuales en contratos públicos peruanos cruzando datos de OSCE, SUNAT y Contraloría. Herramienta ciudadana gratuita.">
+<meta property="og:title" content="VínculosPúblicos.org — Contratos del Estado peruano con IA">
+<meta property="og:description" content="¿Quién gana contratos del Estado, y cómo? Cruzamos datos públicos de OSCE y SUNAT para detectar patrones inusuales. Gratuito, sin publicidad.">
+<meta property="og:url" content="https://vinculospublicos.org">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://vinculospublicos.org/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="VínculosPúblicos.org — Contratos del Estado peruano con IA">
+<meta name="twitter:description" content="¿Quién gana contratos del Estado, y cómo? Detectamos patrones inusuales en contrataciones públicas peruanas.">
+<link rel="canonical" href="https://vinculospublicos.org">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Sans+3:wght@300;400;500;600&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -279,51 +289,6 @@
     flex-shrink: 0;
   }
   .stat-icon svg { width: 16px; height: 16px; fill: white; }
-
-
-  /* PROGRESS ANALISIS */
-  .analisis-progress {
-    background: #1e2d50;
-    padding: 16px 24px;
-    border-top: 1px solid rgba(255,255,255,0.06);
-  }
-  .analisis-progress-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 8px;
-  }
-  .analisis-progress-label {
-    font-size: 12px;
-    color: rgba(255,255,255,0.5);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-  .analisis-progress-count {
-    font-size: 13px;
-    color: rgba(255,255,255,0.8);
-    font-family: 'Source Code Pro', monospace;
-  }
-  .analisis-progress-count span { color: #E8B84B; font-weight: 600; }
-  .analisis-bar-bg {
-    height: 6px;
-    background: rgba(255,255,255,0.1);
-    border-radius: 3px;
-    overflow: hidden;
-  }
-  .analisis-bar-fill {
-    height: 100%;
-    background: linear-gradient(90deg, #C0392B, #E74C3C);
-    border-radius: 3px;
-    width: 0%;
-    transition: width 1.4s cubic-bezier(0.4,0,0.2,1);
-  }
-  .analisis-progress-pct {
-    font-size: 11px;
-    color: rgba(255,255,255,0.35);
-    margin-top: 5px;
-    text-align: right;
-  }
 
 
   /* PROGRESS ANALISIS */
@@ -970,16 +935,12 @@
 <!-- TOPBAR -->
 <div class="topbar">
   <div class="topbar-inner">
-    <span>Datos actualizados al 28 de febrero de 2026 · Fuente: OSCE, SUNAT, Contraloría</span>
+    <span id="fechaActualizacion">Cargando...</span>
     <div class="topbar-links">
       <a href="#metodologia">Metodología</a>
       <a href="#fuentes">Fuentes</a>
-      <a href="/cdn-cgi/l/email-protection#c4a7abaab0a5a7b0ab84b2adaaa7b1a8abb7b4b1a6a8ada7abb7eab4a1">Contacto</a>
+      <a href="mailto:contacto@vinculospublicos.org">Contacto</a>
     </div>
-    <button class="donate-btn" onclick="window.location.href='apoya.html'">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-      Apóyanos
-    </button>
   </div>
 </div>
 
@@ -999,10 +960,14 @@
           </svg>
         </div>
         <div class="logo-text">
-          <h1>Vínculos<span>Públicos</span>.pe</h1>
+          <h1>Vínculos<span>Públicos</span>.org</h1>
           <p>Mapa de contratos del Estado peruano</p>
         </div>
       </div>
+      <a href="apoya.html" class="donate-btn" style="font-size:14px;padding:10px 22px">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        Apóyanos
+      </a>
     </div>
     <nav class="nav">
       <a href="#" class="active" onclick="volverHome();return false;">Inicio</a>
@@ -1018,7 +983,7 @@
   <div class="hero-inner">
     <div class="hero-badge">Beta · Datos públicos del Estado peruano</div>
     <h2>¿Quién gana contratos<br>del Estado, y cómo?</h2>
-    <p>Cruzamos datos de OSCE, SUNAT y Contraloría para detectar patrones inusuales en la adjudicación de contratos públicos peruanos.</p>
+    <p>Cruzamos datos de OSCE, SUNAT y más fuentes oficiales para detectar patrones inusuales en la adjudicación de contratos públicos peruanos.</p>
     <div class="search-container">
       <div class="search-wrap">
         <input type="text" id="searchInput" placeholder="Busca una empresa, RUC o proveedor del Estado..." />
@@ -1203,14 +1168,14 @@
     <div class="sidebar-card" id="metodologia">
       <div class="sidebar-card-header">Cómo funciona</div>
       <div class="sidebar-card-body" style="font-size:13px;color:var(--gris-oscuro);line-height:1.6">
-        <p style="margin-bottom:10px">VínculosPúblicos.pe cruza automáticamente datos de contratos del Estado (OSCE) con datos de registro de empresas (SUNAT) para identificar patrones estadísticamente inusuales.</p>
+        <p style="margin-bottom:10px">VínculosPúblicos.org cruza automáticamente datos de contratos del Estado (OSCE) con datos de registro de empresas (SUNAT) para identificar patrones estadísticamente inusuales.</p>
         <p style="margin-bottom:10px">Una IA analiza cada proveedor y genera un <strong>índice de patrones inusuales</strong> (0–100). No acusa — señala casos que merecen revisión ciudadana o periodística.</p>
         <p>Patrones que detectamos: empresas recién constituidas, concentración de contratos, ausencia de competencia, precios fuera de rango.</p>
       </div>
     </div>
 
     <div class="disclaimer">
-      <strong>VínculosPúblicos.pe</strong> es una herramienta de transparencia ciudadana. Los datos provienen de fuentes oficiales del Estado Peruano (OSCE, SUNAT). El análisis estadístico no implica acusación ni responsabilidad legal. Ley N° 27806 — Transparencia y Acceso a la Información Pública.
+      <strong>VínculosPúblicos.org</strong> es una herramienta de transparencia ciudadana. Los datos provienen de fuentes oficiales del Estado Peruano (OSCE, SUNAT). El análisis estadístico no implica acusación ni responsabilidad legal. Ley N° 27806 — Transparencia y Acceso a la Información Pública.
     </div>
 
   </div>
@@ -1220,13 +1185,13 @@
 <footer>
   <div class="footer-inner">
     <div>
-      <div class="footer-logo">Vínculos<span>Públicos</span>.pe</div>
+      <div class="footer-logo">Vínculos<span>Públicos</span>.org</div>
       <div style="font-size:12px;margin-top:4px">Transparencia en contratos del Estado peruano</div>
     </div>
     <div class="footer-links">
       <a href="#metodologia">Metodología</a>
       <a href="#fuentes">Fuentes</a>
-      <a href="/cdn-cgi/l/email-protection#fb9894958f9a988f94bb8d9295988e9794888b8e999792989488d58b9e">Contacto</a>
+      <a href="mailto:contacto@vinculospublicos.org">Contacto</a>
     </div>
     <button class="donate-btn" onclick="window.location.href='apoya.html'">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
@@ -1271,7 +1236,14 @@ function renderTable(proveedores) {
     document.getElementById('tableContainer').innerHTML = `
       <div class="empty-state">
         <h3>Sin resultados</h3>
-        <p>No encontramos proveedores con ese criterio de búsqueda.</p>
+        <p>No encontramos proveedores con ese criterio. Intenta con:</p>
+        <div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap;justify-content:center">
+          <span class="search-tag" style="background:rgba(26,39,68,0.08);border:1px solid rgba(26,39,68,0.15);color:var(--navy);cursor:pointer" onclick="buscarTag('CRAP')">CRAP Ingeniería</span>
+          <span class="search-tag" style="background:rgba(26,39,68,0.08);border:1px solid rgba(26,39,68,0.15);color:var(--navy);cursor:pointer" onclick="buscarTag('ENOTRIA')">Enotria S.A.</span>
+          <span class="search-tag" style="background:rgba(26,39,68,0.08);border:1px solid rgba(26,39,68,0.15);color:var(--navy);cursor:pointer" onclick="buscarTag('HIDROSTAL')">Hidrostal</span>
+          <span class="search-tag" style="background:rgba(26,39,68,0.08);border:1px solid rgba(26,39,68,0.15);color:var(--navy);cursor:pointer" onclick="buscarTag('CAM SERVICIOS')">CAM Servicios</span>
+        </div>
+        <p style="margin-top:12px;font-size:12px;color:#AAA">También puedes buscar por RUC (11 dígitos)</p>
       </div>`;
     return;
   }
@@ -1531,15 +1503,14 @@ async function cargarProgreso() {
   }
 }
 
-// VOLVER HOME
-function volverHome() {
-  document.getElementById('detailView').classList.remove('visible');
-  document.getElementById('resultsArea').style.display = 'block';
-  document.getElementById('resultsTitle').textContent = 'Mayor índice de patrones inusuales';
-  document.getElementById('resultsInfo').className = 'results-info';
-  document.getElementById('searchInput').value = '';
-  window.scrollTo(0, 0);
-}
+// FECHA DINÁMICA TOPBAR
+(function() {
+  const hoy = new Date();
+  const opciones = { day: 'numeric', month: 'long', year: 'numeric' };
+  const fechaStr = hoy.toLocaleDateString('es-PE', opciones);
+  document.getElementById('fechaActualizacion').textContent =
+    `Datos actualizados al ${fechaStr} · Fuente: OSCE, SUNAT y más`;
+})();
 
 // TYPEWRITER
 (function() {
@@ -1578,7 +1549,7 @@ function volverHome() {
   <div class="modal-box">
     <div class="modal-header">
       <button class="modal-close" onclick="cerrarDonacion()">×</button>
-      <div class="modal-logo">Vínculos<span>Públicos</span>.pe</div>
+      <div class="modal-logo">Vínculos<span>Públicos</span>.org</div>
       <div class="modal-tagline">Transparencia ciudadana sin publicidad</div>
     </div>
     <div class="modal-body">

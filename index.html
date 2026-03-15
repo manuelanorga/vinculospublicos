@@ -450,7 +450,7 @@
     height: 8px;
     background: rgba(255,255,255,0.15);
   }
-  .detail-score-bar-fill { height: 100%; }
+  .detail-score-bar-fill { height: 100%; width: 0%; transition: width 1.4s cubic-bezier(0.4, 0, 0.2, 1); }
 
   .patterns-box {
     background: #FDEDEC;
@@ -1072,22 +1072,15 @@
         <div class="fuente-item">
           <div class="fuente-dot"></div>
           <div>
-            <div class="fuente-name">OSCE — Contrataciones</div>
-            <div class="fuente-date">contratacionesabiertas.osce.gob.pe</div>
+            <div class="fuente-name">OSCE — Contratos y proveedores</div>
+            <div class="fuente-date">datosabiertos.gob.pe · 2023–2025</div>
           </div>
         </div>
         <div class="fuente-item">
           <div class="fuente-dot"></div>
           <div>
-            <div class="fuente-name">SUNAT — RUC Proveedores</div>
-            <div class="fuente-date">sunat.gob.pe</div>
-          </div>
-        </div>
-        <div class="fuente-item">
-          <div class="fuente-dot"></div>
-          <div>
-            <div class="fuente-name">Datos Abiertos Perú</div>
-            <div class="fuente-date">datosabiertos.gob.pe</div>
+            <div class="fuente-name">SUNAT — Fechas de registro</div>
+            <div class="fuente-date">Vía dataset OSCE · RNP</div>
           </div>
         </div>
         <div class="fuente-item">
@@ -1100,7 +1093,7 @@
         <div class="fuente-item">
           <div class="fuente-dot" style="background:#E67E22"></div>
           <div>
-            <div class="fuente-name">JNE — Financiamiento</div>
+            <div class="fuente-name">JNE — Financiamiento político</div>
             <div class="fuente-date">Próximamente</div>
           </div>
         </div>
@@ -1117,7 +1110,7 @@
     </div>
 
     <div class="disclaimer">
-      <strong>VínculosPúblicos.pe</strong> es una herramienta de transparencia ciudadana. Todos los datos provienen de fuentes oficiales públicas del Estado Peruano. Ley N° 27806 de Transparencia y Acceso a la Información Pública.
+      <strong>VínculosPúblicos.pe</strong> es una herramienta de transparencia ciudadana. Los datos provienen de fuentes oficiales del Estado Peruano (OSCE, SUNAT). El análisis estadístico no implica acusación ni responsabilidad legal. Ley N° 27806 — Transparencia y Acceso a la Información Pública.
     </div>
 
   </div>
@@ -1228,8 +1221,9 @@ function verDetalle(i) {
   document.getElementById('detailScore').textContent = s || '—';
   document.getElementById('detailScore').style.color = scoreColor(s);
   const bar = document.getElementById('detailScoreBar');
-  bar.style.width = s + '%';
+  bar.style.width = '0%';
   bar.style.background = scoreColor(s);
+  setTimeout(() => { bar.style.width = s + '%'; }, 100);
 
   // Mostrar dimensiones si existen
   const dimsBox = document.getElementById('dimsBox');

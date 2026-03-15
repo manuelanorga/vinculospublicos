@@ -280,6 +280,96 @@
   }
   .stat-icon svg { width: 16px; height: 16px; fill: white; }
 
+
+  /* PROGRESS ANALISIS */
+  .analisis-progress {
+    background: #1e2d50;
+    padding: 16px 24px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .analisis-progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 8px;
+  }
+  .analisis-progress-label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .analisis-progress-count {
+    font-size: 13px;
+    color: rgba(255,255,255,0.8);
+    font-family: 'Source Code Pro', monospace;
+  }
+  .analisis-progress-count span { color: #E8B84B; font-weight: 600; }
+  .analisis-bar-bg {
+    height: 6px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .analisis-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #C0392B, #E74C3C);
+    border-radius: 3px;
+    width: 0%;
+    transition: width 1.4s cubic-bezier(0.4,0,0.2,1);
+  }
+  .analisis-progress-pct {
+    font-size: 11px;
+    color: rgba(255,255,255,0.35);
+    margin-top: 5px;
+    text-align: right;
+  }
+
+
+  /* PROGRESS ANALISIS */
+  .analisis-progress {
+    background: #1e2d50;
+    padding: 16px 24px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .analisis-progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 8px;
+  }
+  .analisis-progress-label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .analisis-progress-count {
+    font-size: 13px;
+    color: rgba(255,255,255,0.8);
+    font-family: 'Source Code Pro', monospace;
+  }
+  .analisis-progress-count span { color: #E8B84B; font-weight: 600; }
+  .analisis-bar-bg {
+    height: 6px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .analisis-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #C0392B, #E74C3C);
+    border-radius: 3px;
+    width: 0%;
+    transition: width 1.4s cubic-bezier(0.4,0,0.2,1);
+  }
+  .analisis-progress-pct {
+    font-size: 11px;
+    color: rgba(255,255,255,0.35);
+    margin-top: 5px;
+    text-align: right;
+  }
+
   /* MAIN LAYOUT */
   .main {
     max-width: 1100px;
@@ -984,6 +1074,26 @@
       </div>
     </div>
   </div>
+  <div class="analisis-progress">
+    <div class="analisis-progress-header">
+      <div class="analisis-progress-label">Proveedores analizados con IA</div>
+      <div class="analisis-progress-count"><span id="progressAnalyzed">—</span> de 60,140</div>
+    </div>
+    <div class="analisis-bar-bg">
+      <div class="analisis-bar-fill" id="progressBarFill"></div>
+    </div>
+    <div class="analisis-progress-pct" id="progressPct">Cargando...</div>
+  </div>
+  <div class="analisis-progress">
+    <div class="analisis-progress-header">
+      <div class="analisis-progress-label">Proveedores analizados con IA</div>
+      <div class="analisis-progress-count"><span id="progressAnalyzed">—</span> de 60,140</div>
+    </div>
+    <div class="analisis-bar-bg">
+      <div class="analisis-bar-fill" id="progressBarFill"></div>
+    </div>
+    <div class="analisis-progress-pct" id="progressPct">Cargando...</div>
+  </div>
 </div>
 
 <!-- MAIN -->
@@ -1410,6 +1520,27 @@ function volverHome() {
 
 cargarTopRiesgo();
 cargarMenorRiesgo();
+cargarProgreso();
+cargarProgreso();
+
+
+// PROGRESO IA
+async function cargarProgreso() {
+  try {
+    const res = await fetch(`${API}?action=progreso`);
+    const data = await res.json();
+    const total = 60140;
+    const analizados = data.analizados || 0;
+    const pct = ((analizados / total) * 100).toFixed(2);
+    document.getElementById('progressAnalyzed').textContent = analizados.toLocaleString('es-PE');
+    document.getElementById('progressPct').textContent = `${pct}% del universo total de proveedores`;
+    setTimeout(() => {
+      document.getElementById('progressBarFill').style.width = pct + '%';
+    }, 300);
+  } catch(e) {
+    document.getElementById('progressPct').textContent = 'No disponible';
+  }
+}
 
 // VOLVER HOME
 function volverHome() {

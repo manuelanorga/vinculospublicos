@@ -689,35 +689,35 @@
   footer {
     background: var(--navy);
     color: rgba(255,255,255,0.4);
-    padding: 32px 24px;
+    padding: 32px 24px 24px;
     margin-top: 40px;
     font-size: 13px;
+    text-align: center;
   }
-  .footer-inner {
-    max-width: 1100px;
-    margin: 0 auto;
+  .footer-links {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center;
+    gap: 28px;
     flex-wrap: wrap;
-    gap: 16px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
   }
-  .footer-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 18px;
-    color: white;
-    font-weight: 700;
+  .footer-links a {
+    color: rgba(255,255,255,0.7);
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.15s;
   }
-  .footer-logo span { color: var(--oro-claro); }
-  .footer-links { display: flex; gap: 20px; }
-  .footer-links a { color: rgba(255,255,255,0.4); text-decoration: none; }
   .footer-links a:hover { color: white; }
-  .footer-sources {
-    font-size: 11px;
-    color: rgba(255,255,255,0.3);
-    margin-top: 16px;
-    padding-top: 16px;
-    border-top: 1px solid rgba(255,255,255,0.08);
+  .footer-meta {
+    font-size: 12px;
+    color: rgba(255,255,255,0.35);
+    line-height: 1.6;
+  }
+  .footer-meta a { color: rgba(255,255,255,0.5); text-decoration: none; }
+  .footer-meta a:hover { color: white; }
   }
 
   /* RESPONSIVE */
@@ -761,8 +761,8 @@
     .contracts-table th:nth-child(2), .contracts-table td:nth-child(2) { display: none; }
     .contracts-table th:nth-child(3), .contracts-table td:nth-child(3) { display: none; }
     footer { padding: 24px 16px; }
-    .footer-inner { flex-direction: column; align-items: flex-start; gap: 12px; }
-    .footer-links { flex-wrap: wrap; gap: 12px; }
+    .footer-links { gap: 16px; }
+    .footer-links a { font-size: 12px; }
   }
 
   @media (max-width: 400px) {
@@ -1183,23 +1183,15 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-inner">
-    <div>
-      <div class="footer-logo">Vínculos<span>Públicos</span>.org</div>
-      <div style="font-size:12px;margin-top:4px">Transparencia en contratos del Estado peruano</div>
-    </div>
-    <div class="footer-links">
-      <a href="#metodologia">Metodología</a>
-      <a href="#fuentes">Fuentes</a>
-      <a href="mailto:contacto@vinculospublicos.org">Contacto</a>
-    </div>
-    <button class="donate-btn" onclick="window.location.href='apoya.html'">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-      Apóyanos
-    </button>
+  <div class="footer-links">
+    <a href="#">Nosotros</a>
+    <a href="#">Política de Privacidad</a>
+    <a href="#">Términos y Condiciones</a>
+    <a href="mailto:contacto@vinculospublicos.org">Contáctanos</a>
   </div>
-  <div class="footer-inner footer-sources">
-    Datos: OSCE (contratacionesabiertas.osce.gob.pe) · SUNAT · Plataforma Nacional de Datos Abiertos (datosabiertos.gob.pe) · Contraloría General de la República · Período: 2023–2025
+  <div class="footer-meta">
+    <p>VínculosPúblicos.org · Transparencia en contratos del Estado peruano · <a href="#">Inicio</a></p>
+    <p style="margin-top:6px">Datos: OSCE (contratacionesabiertas.osce.gob.pe) · SUNAT · Plataforma Nacional de Datos Abiertos · Contraloría General de la República · Período: 2023–2025</p>
   </div>
 </footer>
 

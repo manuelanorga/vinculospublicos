@@ -10,7 +10,7 @@
   gtag('js', new Date());
   gtag('config', 'G-740EN71M5Z');
 </script>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 <title>VínculosPúblicos.org — Contratos del Estado peruano con IA</title>
 <meta name="description" content="Detectamos patrones inusuales en contratos públicos peruanos cruzando datos de OSCE, SUNAT y Contraloría. Herramienta ciudadana gratuita.">
 <meta property="og:title" content="VínculosPúblicos.org — Contratos del Estado peruano con IA">
@@ -41,6 +41,11 @@
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+  }
 
   body {
     font-family: 'Source Sans 3', sans-serif;
@@ -721,55 +726,126 @@
   }
 
   /* RESPONSIVE */
+  /* ── RESPONSIVE ─────────────────────────────────────────── */
+
+  /* TABLET 900px */
   @media (max-width: 900px) {
-    .main { grid-template-columns: 1fr; padding: 24px 16px; gap: 24px; }
+    .main {
+      grid-template-columns: 1fr;
+      padding: 24px 16px;
+      gap: 24px;
+    }
     .stats-inner { grid-template-columns: repeat(2, 1fr); }
     .stat-item:nth-child(2) { border-right: none; }
     .stat-item:nth-child(3) { border-top: 1px solid var(--borde); }
     .stat-item:nth-child(4) { border-top: 1px solid var(--borde); border-right: none; }
+
+    /* Sidebar en 2 columnas en tablet */
+    .sidebar {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .disclaimer { grid-column: 1 / -1; }
   }
 
+  /* MÓVIL 640px */
   @media (max-width: 640px) {
+    /* TOPBAR */
     .topbar-inner { flex-direction: column; gap: 4px; text-align: center; }
-    .topbar-links { gap: 12px; }
-    .header-inner { padding: 0 16px; }
-    .header-top { flex-direction: column; align-items: flex-start; gap: 12px; margin-bottom: 16px; }
-    .logo-text h1 { font-size: 20px; }
+    .topbar-links { gap: 12px; flex-wrap: wrap; justify-content: center; }
+
+    /* HEADER */
+    .header-inner { padding: 0 12px; }
+    .header-top {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+    .logo-text h1 { font-size: 18px; }
+    .logo-text p { font-size: 9px; }
+    .logo-icon { width: 36px; height: 36px; }
     .nav { overflow-x: auto; -webkit-overflow-scrolling: touch; }
     .nav a { padding: 10px 12px; font-size: 12px; white-space: nowrap; }
-    .hero { padding: 36px 16px 32px; }
-    .hero h2 { font-size: 26px; }
-    .hero p { font-size: 14px; margin-bottom: 24px; }
-    .search-wrap button { padding: 16px 16px; font-size: 13px; }
+
+    /* HERO */
+    .hero { padding: 32px 16px 28px; }
+    .hero h2 { font-size: 24px; }
+    .hero p { font-size: 13px; margin-bottom: 20px; }
+    .search-wrap button { padding: 16px 14px; font-size: 13px; }
     .search-tags { gap: 6px; }
     .search-tag { font-size: 11px; padding: 3px 10px; }
+
+    /* STATS BAR */
     .stats-inner { grid-template-columns: repeat(2, 1fr); }
-    .stat-item { padding: 12px 14px; }
-    .stat-num { font-size: 18px; }
+    .stat-item { padding: 12px 10px; }
+    .stat-num { font-size: 16px; }
     .stat-label { font-size: 10px; }
-    .stat-icon { width: 26px; height: 26px; }
-    .main { padding: 20px 16px; gap: 20px; }
+    .stat-icon { width: 24px; height: 24px; }
+
+    /* MAIN — flexbox para controlar orden */
+    .main {
+      display: flex;
+      flex-direction: column;
+      padding: 16px 12px;
+      gap: 16px;
+    }
+
+    /* ORDEN EN MÓVIL:
+       1. Mayor índice (col-left)
+       2. Top 10 Mayor riesgo
+       3. Top 10 Menor riesgo
+       4. Fuentes de datos
+       5. Cómo funciona
+       6. Disclaimer
+    */
+    .col-left              { order: 1; }
+    .sidebar-top-riesgo    { order: 2; }
+    .sidebar-menor-riesgo  { order: 3; }
+    #fuentes               { order: 4; }
+    #metodologia           { order: 5; }
+    .disclaimer            { order: 6; }
+
+    /* Sidebar como flex column para respetar el order */
+    .sidebar {
+      display: contents; /* los hijos se integran al flujo del padre */
+    }
+
+    /* TABLA */
     .section-header { flex-direction: column; align-items: flex-start; gap: 4px; }
+    .provider-table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
     .provider-table th:last-child, .provider-table td:last-child { display: none; }
     .provider-table td { padding: 12px 10px; }
     .provider-name { font-size: 13px; }
-    .detail-header { padding: 16px; }
-    .detail-name { font-size: 18px; }
-    .detail-score-row { flex-direction: column; gap: 12px; }
-    .detail-score-num { font-size: 40px; }
+
+    /* DETALLE */
+    .detail-header { padding: 14px; }
+    .detail-name { font-size: 16px; }
+    .detail-score-row { flex-direction: column; gap: 10px; }
+    .detail-score-num { font-size: 36px; }
     .detail-score-bar-bg { width: 100%; }
+    #dimsBox { grid-template-columns: 1fr !important; }
+
+    /* CONTRATOS TABLE */
+    .contracts-table { display: block; overflow-x: auto; }
     .contracts-table th:nth-child(2), .contracts-table td:nth-child(2) { display: none; }
     .contracts-table th:nth-child(3), .contracts-table td:nth-child(3) { display: none; }
+
+    /* FOOTER */
     footer { padding: 24px 16px; }
-    .footer-links { gap: 16px; }
+    .footer-links { gap: 14px; }
     .footer-links a { font-size: 12px; }
   }
 
+  /* MÓVIL PEQUEÑO 400px */
   @media (max-width: 400px) {
-    .hero h2 { font-size: 22px; }
+    .hero h2 { font-size: 20px; }
     .search-wrap { flex-direction: column; border-radius: 10px; }
     .search-wrap input { border-radius: 10px 10px 0 0; }
     .search-wrap button { border-radius: 0 0 10px 10px; text-align: center; }
+    .stats-inner { grid-template-columns: 1fr 1fr; }
+    .logo-text h1 { font-size: 16px; }
   }
 
   /* DONACION */
@@ -1117,14 +1193,14 @@
   <!-- SIDEBAR -->
   <div class="sidebar">
 
-    <div class="sidebar-card">
+    <div class="sidebar-card sidebar-top-riesgo">
       <div class="sidebar-card-header">Top 10 — Mayor riesgo detectado</div>
       <div class="sidebar-card-body" id="topRiesgoList">
         <div style="text-align:center;padding:20px;color:#999;font-size:13px">Cargando...</div>
       </div>
     </div>
 
-    <div class="sidebar-card">
+    <div class="sidebar-card sidebar-menor-riesgo">
       <div class="sidebar-card-header">Top 10 — Menor riesgo detectado</div>
       <div class="sidebar-card-body" id="menorRiesgoList">
         <div style="text-align:center;padding:20px;color:#999;font-size:13px">Cargando...</div>

@@ -43,6 +43,8 @@
     background: var(--crema);
     color: var(--navy);
     line-height: 1.6;
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
 
   /* NAV */
@@ -147,9 +149,16 @@
     margin: 0 auto;
     padding: clamp(24px, 5vw, 60px) clamp(16px, 4vw, 40px);
     display: grid;
-    grid-template-columns: 1fr 400px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 400px);
     gap: clamp(24px, 5vw, 60px);
     align-items: start;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Evita que los hijos del grid desborden */
+  .main > * {
+    min-width: 0;
     width: 100%;
     box-sizing: border-box;
   }
@@ -186,6 +195,7 @@
     display: flex; align-items: center; justify-content: center;
     font-size: 20px; flex-shrink: 0;
   }
+  .impact-card > div { min-width: 0; flex: 1; }
   .impact-card-icon.red { background: #FEF2F2; }
   .impact-card-icon.blue { background: #EFF6FF; }
   .impact-card-icon.green { background: #F0FDF4; }
@@ -471,9 +481,24 @@
   .alt-btn:hover { border-color: var(--navy); }
   .alt-btn-icon { font-size: 16px; }
 
-  /* FAQ */
-  .faq { max-width: 700px; margin: 0 auto 60px; padding: 0 40px; }
-  .faq h2 { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; margin-bottom: 24px; text-align: center; }
+  /* FAQ SECTION */
+  .faq-section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 48px clamp(16px, 4vw, 40px) 48px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .faq-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 24px;
+    text-align: center;
+  }
+
+  /* FAQ items */
   .faq-item { border-top: 1px solid rgba(26,39,68,0.1); padding: 16px 0; }
   .faq-q { font-weight: 600; font-size: 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
   .faq-a { font-size: 14px; color: var(--gris); margin-top: 10px; line-height: 1.6; display: none; }
@@ -551,8 +576,8 @@
 
   /* ── RESPONSIVE ─────────────────────────────────────────── */
 
-  /* TABLET — hasta 900px */
-  @media (max-width: 900px) {
+  /* TABLET — hasta 1024px */
+  @media (max-width: 1024px) {
     .main {
       grid-template-columns: 1fr;
       padding: 40px 24px;
@@ -560,9 +585,8 @@
     }
     .donation-box { position: static; }
     .hero { padding: 60px 24px 44px; }
-    .hero h1 { font-size: clamp(28px, 5vw, 48px); }
-    .hero-stats { gap: 28px; }
-    .hero-stat-num { font-size: 26px; }
+    .hero h1 { font-size: clamp(26px, 5vw, 46px); }
+    .hero-stats { gap: 24px; }
     nav { padding: 14px 24px; }
     .impact-cards { gap: 12px; }
   }
@@ -571,72 +595,76 @@
   @media (max-width: 640px) {
     /* NAV */
     nav { padding: 12px 16px; }
-    .nav-brand { font-size: 15px; }
+    .nav-brand { font-size: 14px; }
     .nav-back { font-size: 12px; }
 
     /* HERO */
     .hero { padding: 40px 16px 32px; }
-    .hero-tag { font-size: 10px; letter-spacing: 1.5px; padding: 5px 12px; }
-    .hero h1 { font-size: clamp(20px, 6vw, 30px); margin-bottom: 12px; }
+    .hero-tag { font-size: 10px; padding: 5px 12px; }
+    .hero h1 { font-size: clamp(20px, 5.5vw, 28px); margin-bottom: 12px; }
     .hero p { font-size: 14px; margin-bottom: 20px; }
-    .hero-stats { gap: 14px 24px; flex-wrap: wrap; justify-content: center; }
+    .hero-stats { gap: 14px 20px; }
     .hero-stat-num { font-size: 20px; }
     .hero-stat-label { font-size: 10px; }
 
-    /* MAIN — una sola columna, padding ajustado */
-    .main {
-      grid-template-columns: 1fr;
-      padding: 20px 16px;
-      gap: 20px;
-    }
-    .donation-box { position: static; }
+    /* MAIN */
+    .main { padding: 20px 16px; gap: 20px; }
+    .donation-box { position: static; padding: 20px 16px; }
 
-    /* IMPACT CARDS */
+    /* IMPACT CARDS — vertical en móvil */
     .impact-title { font-size: 20px; }
     .impact-sub { font-size: 13px; }
-    .impact-card { padding: 14px 14px; gap: 12px; }
-    .impact-card-icon { width: 36px; height: 36px; font-size: 17px; flex-shrink: 0; }
-    .impact-card-title { font-size: 14px; }
+    .impact-card {
+      padding: 18px 16px;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 10px;
+    }
+    .impact-card-icon {
+      width: 42px; height: 42px;
+      font-size: 20px;
+      flex-shrink: 0;
+      margin: 0 auto;
+    }
+    .impact-card > div { min-width: 0; flex: 1; width: 100%; }
+    .impact-card-title { font-size: 14px; margin-bottom: 4px; }
     .impact-card-desc { font-size: 12px; }
 
     /* CASE BOX */
-    .case-box { padding: 16px 16px; }
+    .case-box { padding: 16px; }
     .case-name { font-size: 15px; }
     .case-stats { gap: 12px; flex-wrap: wrap; }
     .case-stat-val { font-size: 13px; }
 
     /* CAROUSEL */
     .testimonial-slide { padding: 18px 16px 14px; }
-    .testimonial-text { font-size: 13px; line-height: 1.6; }
+    .testimonial-text { font-size: 13px; }
     .testimonial-author { font-size: 12px; }
 
-    /* DONATION BOX */
-    .donation-box { padding: 20px 16px; border-radius: 12px; }
+    /* DONATION */
     .donation-box-title { font-size: 18px; }
     .donation-box-sub { font-size: 13px; }
-    .freq-toggle { margin-bottom: 16px; }
     .amount-grid { grid-template-columns: repeat(3, 1fr); gap: 6px; }
-    .amount-btn { padding: 10px 4px; font-size: 13px; border-radius: 6px; }
-    .custom-input { font-size: 14px; }
+    .amount-btn { padding: 10px 4px; font-size: 13px; }
     .impact-preview { font-size: 12px; padding: 10px 12px; }
-    .donate-btn { font-size: 15px; padding: 14px; border-radius: 8px; }
-    .secure-note { font-size: 11px; text-align: center; flex-wrap: wrap; justify-content: center; }
+    .donate-btn { font-size: 15px; padding: 14px; }
+    .secure-note { font-size: 11px; flex-wrap: wrap; justify-content: center; text-align: center; }
 
     /* YAPE */
     .yape-section { padding: 16px 12px; }
     .yape-qr { width: 140px; height: 140px; }
     .yape-copy { font-size: 12px; }
-    .yape-badge { font-size: 12px; }
 
-    /* ALT OPTIONS */
-    .alt-title { font-size: 11px; }
-    .alt-btn { font-size: 12px; padding: 9px 12px; }
-    .share-label { font-size: 11px; }
+    /* SHARE */
     .share-buttons { gap: 6px; justify-content: center; }
-    .share-btn { padding: 8px 10px; font-size: 11px; }
+    .share-btn { padding: 8px 9px; font-size: 11px; }
     .share-btn svg { width: 13px; height: 13px; }
+    .alt-btn { font-size: 12px; padding: 9px 12px; }
 
     /* FAQ */
+    .faq-section { padding: 32px 16px; }
+    .faq-title { font-size: 22px; }
     .faq-q { font-size: 13px; }
     .faq-a { font-size: 12px; }
 
@@ -649,11 +677,10 @@
 
   /* MÓVIL PEQUEÑO — hasta 390px */
   @media (max-width: 390px) {
-    .hero h1 { font-size: 20px; }
+    .hero h1 { font-size: 19px; }
     .amount-grid { grid-template-columns: repeat(2, 1fr); }
-    .hero-stats { gap: 12px 18px; }
     .case-stats { flex-direction: column; gap: 8px; }
-    .share-btn { padding: 7px 8px; font-size: 11px; }
+    .share-btn { padding: 7px 7px; font-size: 10px; }
   }
 
   /* ANIMATIONS */
@@ -796,27 +823,6 @@
       </div>
     </div>
 
-    <!-- FAQ -->
-    <div style="margin-top: 32px; margin-bottom: 16px;">
-      <div style="font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--navy); margin-bottom: 16px;">Preguntas frecuentes</div>
-    </div>
-    <div style="margin-top: 0;">
-      <div class="faq-item" onclick="toggleFaq(this)">
-        <div class="faq-q">¿Cómo se usa mi donación? <em class="faq-chevron">▾</em></div>
-        <div class="faq-a">El 80% va directo al análisis de más proveedores con IA. El 20% restante cubre infraestructura (servidor, dominio, base de datos). No tenemos empleados pagados — somos un proyecto ciudadano.</div>
-      </div>
-      <div class="faq-item" onclick="toggleFaq(this)">
-        <div class="faq-q">¿Es seguro donar aquí? <em class="faq-chevron">▾</em></div>
-        <div class="faq-a">Sí. El procesamiento de pagos se realiza a través de Niubiz (próximamente), el gateway de pago más usado en el Perú. Tus datos financieros nunca pasan por nuestros servidores.</div>
-      </div>
-      <div class="faq-item" onclick="toggleFaq(this)">
-        <div class="faq-q">¿Por qué no tienen publicidad? <em class="faq-chevron">▾</em></div>
-        <div class="faq-a">Una herramienta anticorrupción que muestra anuncios de empresas constructoras o proveedores del Estado destruye su credibilidad. Preferimos ser financiados por ciudadanos que por corporaciones.</div>
-      </div>
-      <div class="faq-item" onclick="toggleFaq(this)">
-        <div class="faq-q">¿Puedo cancelar mi donación mensual? <em class="faq-chevron">▾</em></div>
-        <div class="faq-a">Sí, en cualquier momento. Sin preguntas, sin penalidades. Solo escríbenos a <a href="mailto:contacto@vinculospublicos.org">contacto@vinculospublicos.org</a>.</div>
-      </div>
     </div>
   </div>
 
@@ -896,6 +902,27 @@
       </button>
 
     </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="faq-section">
+  <div class="faq-title">Preguntas frecuentes</div>
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-q">¿Cómo se usa mi donación? <em class="faq-chevron">▾</em></div>
+    <div class="faq-a">El 80% va directo al análisis de más proveedores con IA. El 20% restante cubre infraestructura (servidor, dominio, base de datos). No tenemos empleados pagados — somos un proyecto ciudadano.</div>
+  </div>
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-q">¿Es seguro donar aquí? <em class="faq-chevron">▾</em></div>
+    <div class="faq-a">Sí. El procesamiento de pagos se realiza a través de Niubiz (próximamente), el gateway de pago más usado en el Perú. Tus datos financieros nunca pasan por nuestros servidores.</div>
+  </div>
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-q">¿Por qué no tienen publicidad? <em class="faq-chevron">▾</em></div>
+    <div class="faq-a">Una herramienta anticorrupción que muestra anuncios de empresas constructoras o proveedores del Estado destruye su credibilidad. Preferimos ser financiados por ciudadanos que por corporaciones.</div>
+  </div>
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-q">¿Puedo cancelar mi donación mensual? <em class="faq-chevron">▾</em></div>
+    <div class="faq-a">Sí, en cualquier momento. Sin preguntas, sin penalidades. Solo escríbenos a <a href="mailto:contacto@vinculospublicos.org">contacto@vinculospublicos.org</a>.</div>
   </div>
 </div>
 

@@ -48,26 +48,30 @@
   /* NAV */
   nav {
     background: var(--navy);
-    padding: 16px 40px;
+    padding: 16px clamp(16px, 4vw, 40px);
     display: flex;
     align-items: center;
     gap: 12px;
+    width: 100%;
+    box-sizing: border-box;
   }
-  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-  .nav-logo-icon { width: 32px; height: 32px; background: var(--rojo); border-radius: 6px; display: flex; align-items: center; justify-content: center; }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; min-width: 0; }
+  .nav-logo-icon { width: 32px; height: 32px; background: var(--rojo); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
   .nav-logo-icon svg { width: 18px; height: 18px; }
-  .nav-brand { font-family: 'Playfair Display', serif; font-size: 18px; color: white; }
+  .nav-brand { font-family: 'Playfair Display', serif; font-size: clamp(14px, 3vw, 18px); color: white; white-space: nowrap; }
   .nav-brand span { color: var(--oro); }
-  .nav-back { margin-left: auto; color: rgba(255,255,255,0.6); font-size: 13px; text-decoration: none; }
+  .nav-back { margin-left: auto; color: rgba(255,255,255,0.6); font-size: 13px; text-decoration: none; white-space: nowrap; flex-shrink: 0; }
   .nav-back:hover { color: white; }
 
   /* HERO */
   .hero {
     background: var(--navy);
-    padding: 80px 40px 60px;
+    padding: clamp(40px, 8vw, 80px) clamp(16px, 5vw, 40px) clamp(36px, 6vw, 60px);
     text-align: center;
     position: relative;
     overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
   }
   .hero::before {
     content: '';
@@ -110,7 +114,7 @@
   }
   .hero h1 em { color: var(--oro); font-style: normal; }
   .hero p {
-    font-size: 18px;
+    font-size: clamp(14px, 2.5vw, 18px);
     color: rgba(255,255,255,0.75);
     max-width: 580px;
     margin: 0 auto 40px;
@@ -119,13 +123,13 @@
   .hero-stats {
     display: flex;
     justify-content: center;
-    gap: 48px;
+    gap: clamp(16px, 5vw, 48px);
     position: relative;
     flex-wrap: wrap;
   }
   .hero-stat-num {
     font-family: 'Playfair Display', serif;
-    font-size: 32px;
+    font-size: clamp(22px, 4vw, 32px);
     font-weight: 700;
     color: white;
   }
@@ -141,10 +145,10 @@
   .main {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 60px 40px;
+    padding: clamp(24px, 5vw, 60px) clamp(16px, 4vw, 40px);
     display: grid;
     grid-template-columns: 1fr 400px;
-    gap: 60px;
+    gap: clamp(24px, 5vw, 60px);
     align-items: start;
     width: 100%;
     box-sizing: border-box;
@@ -167,12 +171,14 @@
   .impact-card {
     background: white;
     border-radius: 12px;
-    padding: 20px 24px;
+    padding: clamp(14px, 2vw, 20px) clamp(14px, 2vw, 24px);
     display: flex;
-    gap: 20px;
+    gap: clamp(12px, 2vw, 20px);
     align-items: flex-start;
     border: 1px solid rgba(26,39,68,0.08);
     transition: transform 0.2s, box-shadow 0.2s;
+    width: 100%;
+    box-sizing: border-box;
   }
   .impact-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(26,39,68,0.08); }
   .impact-card-icon {
@@ -314,7 +320,7 @@
   .donation-box {
     background: white;
     border-radius: 16px;
-    padding: 32px;
+    padding: clamp(20px, 3vw, 32px);
     border: 1px solid rgba(26,39,68,0.1);
     box-shadow: 0 20px 60px rgba(26,39,68,0.1);
     position: sticky;

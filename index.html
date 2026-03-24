@@ -56,7 +56,6 @@
     line-height: 1.6;
   }
 
-  /* ── TOPBAR ───────────────────────────────────────────────── */
   .topbar {
     background: var(--navy);
     color: rgba(255,255,255,0.6);
@@ -76,7 +75,6 @@
   .topbar a:hover { color: white; }
   .topbar-links { display: flex; gap: 20px; }
 
-  /* ── HEADER ───────────────────────────────────────────────── */
   .header { background: var(--navy); padding: 20px 0 0; }
   .header-inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
   .header-top {
@@ -103,7 +101,6 @@
     letter-spacing: 1.5px; text-transform: uppercase; margin-top: 3px;
   }
 
-  /* ── NAV ──────────────────────────────────────────────────── */
   .nav { display: flex; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 4px; }
   .nav a {
     color: rgba(255,255,255,0.6); text-decoration: none;
@@ -115,7 +112,6 @@
   .nav a:hover { color: white; background: rgba(255,255,255,0.05); }
   .nav a.active { color: white; border-bottom-color: var(--rojo); }
 
-  /* ── HERO ─────────────────────────────────────────────────── */
   .hero {
     background: linear-gradient(135deg, var(--navy) 0%, var(--navy-claro) 100%);
     padding: 56px 24px 48px;
@@ -123,7 +119,6 @@
     position: relative;
     overflow: hidden;
   }
-  /* Canvas animation overlay */
   #heroCanvas {
     position: absolute;
     top: 0; left: 0;
@@ -136,7 +131,6 @@
     text-align: center;
     position: relative; z-index: 1;
   }
-  /* Badge with pulsing dot */
   .hero-badge {
     display: inline-flex;
     align-items: center; gap: 8px;
@@ -172,7 +166,6 @@
     margin-left: auto; margin-right: auto; font-weight: 300;
   }
 
-  /* ── SEARCH ───────────────────────────────────────────────── */
   .search-container { max-width: 640px; margin: 0 auto; }
   .search-wrap {
     display: flex; background: white; overflow: hidden;
@@ -209,7 +202,6 @@
   }
   .search-tag:hover { background: rgba(255,255,255,0.15); color: white; }
 
-  /* ── STATS BAR ────────────────────────────────────────────── */
   .stats-bar {
     background: var(--gris-claro);
     border-bottom: 1px solid var(--borde);
@@ -241,7 +233,6 @@
   }
   .stat-icon svg { width: 16px; height: 16px; fill: white; }
 
-  /* ── PROGRESS BAR ─────────────────────────────────────────── */
   .analisis-progress {
     background: #1e2d50;
     padding: 16px 24px;
@@ -275,7 +266,6 @@
     margin-top: 5px; text-align: right;
   }
 
-  /* ── CASO DESTACADO ───────────────────────────────────────── */
   .caso-section {
     background: #0f1d38;
     border-bottom: 1px solid rgba(255,255,255,0.05);
@@ -355,14 +345,12 @@
     background: none; border: none; cursor: pointer; letter-spacing: 0.3px;
   }
 
-  /* ── MAIN LAYOUT ──────────────────────────────────────────── */
   .main {
     max-width: 1100px; margin: 0 auto;
     padding: 40px 24px;
     display: grid; grid-template-columns: 1fr 320px; gap: 40px;
   }
 
-  /* ── SECTION HEADERS ──────────────────────────────────────── */
   .section-header {
     display: flex; align-items: center; justify-content: space-between;
     border-bottom: 2px solid var(--navy);
@@ -377,7 +365,6 @@
     text-transform: uppercase; letter-spacing: 1px;
   }
 
-  /* ── RESULTS TABLE ────────────────────────────────────────── */
   .results-area { margin-bottom: 40px; }
   .results-info {
     font-size: 13px; color: var(--gris);
@@ -408,7 +395,6 @@
     font-size: 11px; color: var(--gris);
   }
 
-  /* ── RING SVG ─────────────────────────────────────────────── */
   .ring-wrap {
     position: relative; flex-shrink: 0; display: inline-block;
   }
@@ -419,7 +405,6 @@
     font-weight: 700; line-height: 1;
   }
 
-  /* ── RISK BADGE ───────────────────────────────────────────── */
   .risk-badge {
     display: inline-block; font-size: 10px; font-weight: 700;
     letter-spacing: 1px; padding: 3px 8px;
@@ -429,7 +414,6 @@
   .badge-medio { background: #FEF9E7; color: #9A7D0A; }
   .badge-bajo  { background: #EAFAF1; color: var(--verde); }
 
-  /* ── DETAIL VIEW ──────────────────────────────────────────── */
   .detail-view { display: none; }
   .detail-view.visible { display: block; }
   .back-btn {
@@ -489,7 +473,6 @@
     transition: width 1.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  /* ── DIMENSION CARDS ──────────────────────────────────────── */
   .dims-grid {
     display: grid; grid-template-columns: 1fr 1fr;
     gap: 12px; margin-bottom: 24px;
@@ -549,7 +532,6 @@
     white-space: nowrap; text-align: right;
   }
 
-  /* ── SIDEBAR ──────────────────────────────────────────────── */
   .sidebar-card {
     border: 1px solid var(--borde);
     margin-bottom: 24px; background: white;
@@ -585,7 +567,6 @@
   .fuente-name { font-weight: 600; color: var(--navy); }
   .fuente-date { font-size: 11px; color: var(--gris); margin-top: 1px; }
 
-  /* ── DISCLAIMER ───────────────────────────────────────────── */
   .disclaimer {
     background: #FEF9E7; border: 1px solid #F9E79F;
     border-left: 4px solid var(--oro);
@@ -594,7 +575,6 @@
     border-radius: 0 8px 8px 0;
   }
 
-  /* ── LOADING ──────────────────────────────────────────────── */
   .loading { text-align: center; padding: 40px; color: var(--gris); font-size: 14px; display: none; }
   .loading.visible { display: block; }
   .spinner {
@@ -605,14 +585,12 @@
   }
   @keyframes spin { to { transform: rotate(360deg); } }
 
-  /* ── EMPTY STATE ──────────────────────────────────────────── */
   .empty-state { text-align: center; padding: 60px 24px; color: var(--gris); }
   .empty-state h3 {
     font-family: 'Playfair Display', serif;
     font-size: 22px; color: var(--navy); margin-bottom: 8px;
   }
 
-  /* ── FOOTER ───────────────────────────────────────────────── */
   footer {
     background: var(--navy); color: rgba(255,255,255,0.4);
     padding: 32px 24px 24px; margin-top: 40px;
@@ -632,7 +610,6 @@
   .footer-meta a { color: rgba(255,255,255,0.5); text-decoration: none; }
   .footer-meta a:hover { color: white; }
 
-  /* ── DONATE BUTTON ────────────────────────────────────────── */
   .donate-btn {
     display: inline-flex; align-items: center; gap: 8px;
     background: linear-gradient(135deg, #C0392B, #922B21);
@@ -650,7 +627,6 @@
   }
   .donate-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
 
-  /* ── MODAL ────────────────────────────────────────────────── */
   .modal-overlay {
     display: none; position: fixed; inset: 0;
     background: rgba(10,18,40,0.75); z-index: 1000;
@@ -727,7 +703,6 @@
   }
   .modal-disclaimer a { color: var(--navy); }
 
-  /* ── RESPONSIVE: TABLET 900px ─────────────────────────────── */
   @media (max-width: 900px) {
     .main { grid-template-columns: 1fr; padding: 24px 16px; gap: 24px; }
     .stats-inner { grid-template-columns: repeat(2, 1fr); }
@@ -738,7 +713,6 @@
     .disclaimer { grid-column: 1 / -1; }
   }
 
-  /* ── RESPONSIVE: MÓVIL 640px ──────────────────────────────── */
   @media (max-width: 640px) {
     .topbar-inner { flex-direction: column; gap: 4px; text-align: center; }
     .topbar-links { gap: 12px; flex-wrap: wrap; justify-content: center; }
@@ -760,12 +734,10 @@
     .stat-num { font-size: 16px; }
     .stat-label { font-size: 10px; }
     .stat-icon { width: 24px; height: 24px; }
-    /* Caso destacado mobile */
     .caso-card-top { flex-direction: column; }
     .caso-card-facts { grid-template-columns: 1fr; }
     .caso-fact { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.04); }
     .caso-fact:last-child { border-bottom: none; }
-    /* Main flex en móvil */
     .main { display: flex; flex-direction: column; padding: 16px 12px; gap: 16px; }
     .col-left              { order: 1; }
     .sidebar-top-riesgo    { order: 2; }
@@ -779,7 +751,6 @@
     .provider-table th:last-child, .provider-table td:last-child { display: none; }
     .provider-table td { padding: 10px 10px; }
     .provider-name { font-size: 13px; }
-    /* Detail view mobile */
     .detail-header { padding: 14px; border-radius: 6px; }
     .detail-name { font-size: 16px; }
     .detail-header-top { flex-direction: column; }
@@ -795,7 +766,6 @@
     .footer-links a { font-size: 12px; }
   }
 
-  /* ── RESPONSIVE: PEQUEÑO 400px ────────────────────────────── */
   @media (max-width: 400px) {
     .hero h2 { font-size: 20px; }
     .search-wrap { flex-direction: column; border-radius: 10px; }
@@ -807,7 +777,6 @@
 </head>
 <body>
 
-<!-- ── TOPBAR ─────────────────────────────────────────────────── -->
 <div class="topbar">
   <div class="topbar-inner">
     <span id="fechaActualizacion">Cargando...</span>
@@ -819,7 +788,6 @@
   </div>
 </div>
 
-<!-- ── HEADER ─────────────────────────────────────────────────── -->
 <div class="header">
   <div class="header-inner">
     <div class="header-top">
@@ -855,7 +823,6 @@
   </div>
 </div>
 
-<!-- ── HERO (con canvas animado) ─────────────────────────────── -->
 <div class="hero">
   <canvas id="heroCanvas"></canvas>
   <div class="hero-inner">
@@ -864,7 +831,7 @@
       Beta · Datos públicos del Estado peruano
     </div>
     <h2>¿Quién gana contratos<br>del Estado, <em>y cómo?</em></h2>
-    <p>Cruzamos datos de OSCE, SUNAT y más fuentes oficiales para detectar patrones inusuales en la adjudicación de contratos públicos peruanos.</p>
+    <p>Cruzamos datos de OSCE, RNP y más fuentes oficiales para detectar patrones inusuales en la adjudicación de contratos públicos peruanos.</p>
     <div class="search-container" id="buscar">
       <div class="search-wrap">
         <input type="text" id="searchInput" placeholder="Busca una empresa, RUC o proveedor del Estado..."/>
@@ -880,7 +847,6 @@
   </div>
 </div>
 
-<!-- ── STATS BAR (con contadores animados) ───────────────────── -->
 <div class="stats-bar">
   <div class="stats-inner">
     <div class="stat-item">
@@ -932,7 +898,6 @@
   </div>
 </div>
 
-<!-- ── CASO DESTACADO ─────────────────────────────────────────── -->
 <div class="caso-section" id="casoSection" style="display:none">
   <div class="caso-inner-wrap">
     <div class="caso-eyebrow">
@@ -949,18 +914,16 @@
       </div>
       <div class="caso-card-facts" id="casoFacts"></div>
       <div class="caso-card-foot">
-        <span class="caso-chip">OSCE · SUNAT · Análisis IA · 2023–2025</span>
+        <span class="caso-chip">OSCE · RNP · Análisis IA · 2023–2025</span>
         <button class="caso-cta-btn" onclick="abrirCasoDestacado()">Ver análisis completo →</button>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ── MAIN ───────────────────────────────────────────────────── -->
 <div class="main">
   <div class="col-left">
 
-    <!-- RESULTS AREA -->
     <div class="results-area" id="resultsArea">
       <div class="section-header">
         <span class="section-title" id="resultsTitle">Mayor índice de patrones inusuales</span>
@@ -974,7 +937,6 @@
       <div id="tableContainer"></div>
     </div>
 
-    <!-- DETAIL VIEW -->
     <div class="detail-view" id="detailView">
       <button class="back-btn" onclick="volverLista()">← Volver a resultados</button>
 
@@ -1015,7 +977,7 @@
       </div>
 
       <div class="disclaimer" style="margin-bottom:24px">
-        <strong>Aviso legal:</strong> Este análisis es exclusivamente estadístico y se basa en datos de fuentes públicas oficiales del Estado Peruano (OSCE, SUNAT, Contraloría). La presencia de patrones inusuales no constituye acusación, imputación ni determinación de responsabilidad penal, civil o administrativa de ningún tipo.
+        <strong>Aviso legal:</strong> Este análisis es exclusivamente estadístico y se basa en datos de fuentes públicas oficiales del Estado Peruano (OSCE, RNP, Contraloría). La presencia de patrones inusuales no constituye acusación, imputación ni determinación de responsabilidad penal, civil o administrativa de ningún tipo.
       </div>
 
       <div class="section-header">
@@ -1032,7 +994,6 @@
 
   </div>
 
-  <!-- SIDEBAR -->
   <div class="sidebar">
 
     <div class="sidebar-card sidebar-top-riesgo">
@@ -1062,8 +1023,8 @@
         <div class="fuente-item">
           <div class="fuente-dot"></div>
           <div>
-            <div class="fuente-name">SUNAT — Fechas de registro</div>
-            <div class="fuente-date">Vía dataset OSCE · RNP</div>
+            <div class="fuente-name">RNP — Fechas de habilitación</div>
+            <div class="fuente-date">Registro Nacional de Proveedores · OSCE</div>
           </div>
         </div>
         <div class="fuente-item">
@@ -1086,20 +1047,19 @@
     <div class="sidebar-card" id="metodologia">
       <div class="sidebar-card-header">Cómo funciona</div>
       <div class="sidebar-card-body" style="font-size:13px;color:var(--gris-oscuro);line-height:1.6">
-        <p style="margin-bottom:10px">VínculosPúblicos.org cruza automáticamente datos de contratos del Estado (OSCE) con datos de registro de empresas (SUNAT) para identificar patrones estadísticamente inusuales.</p>
+        <p style="margin-bottom:10px">VínculosPúblicos.org cruza automáticamente datos de contratos del Estado (OSCE) con el Registro Nacional de Proveedores (RNP) para identificar patrones estadísticamente inusuales.</p>
         <p style="margin-bottom:10px">Una IA analiza cada proveedor y genera un <strong>índice de patrones inusuales</strong> (0–100). No acusa — señala casos que merecen revisión ciudadana o periodística.</p>
-        <p>Patrones que detectamos: empresas recién constituidas, concentración de contratos, ausencia de competencia, precios fuera de rango.</p>
+        <p>Patrones que detectamos: empresas que contrataron antes de estar habilitadas en el RNP, concentración de contratos en una sola entidad, ausencia de competencia, volúmenes inusuales para empresas nuevas.</p>
       </div>
     </div>
 
     <div class="disclaimer">
-      <strong>VínculosPúblicos.org</strong> es una herramienta de transparencia ciudadana. Los datos provienen de fuentes oficiales del Estado Peruano (OSCE, SUNAT). El análisis estadístico no implica acusación ni responsabilidad legal. Ley N° 27806 — Transparencia y Acceso a la Información Pública.
+      <strong>VínculosPúblicos.org</strong> es una herramienta de transparencia ciudadana. Los datos provienen de fuentes oficiales del Estado Peruano (OSCE, RNP). El análisis estadístico no implica acusación ni responsabilidad legal. Ley N° 27806 — Transparencia y Acceso a la Información Pública.
     </div>
 
   </div>
 </div>
 
-<!-- ── FOOTER ─────────────────────────────────────────────────── -->
 <footer>
   <div class="footer-links">
     <a href="#">Nosotros</a>
@@ -1110,11 +1070,10 @@
   </div>
   <div class="footer-meta">
     <p>VínculosPúblicos.org · Transparencia en contratos del Estado peruano · <a href="#" onclick="volverHome();return false;">Inicio</a></p>
-    <p style="margin-top:6px">Datos: OSCE (contratacionesabiertas.osce.gob.pe) · SUNAT · Plataforma Nacional de Datos Abiertos · Contraloría General de la República · Período: 2023–2025</p>
+    <p style="margin-top:6px">Datos: OSCE (contratacionesabiertas.osce.gob.pe) · RNP · Plataforma Nacional de Datos Abiertos · Contraloría General de la República · Período: 2023–2025</p>
   </div>
 </footer>
 
-<!-- ── MODAL DONACION ─────────────────────────────────────────── -->
 <div class="modal-overlay" id="donacionModal" onclick="cerrarSiOverlay(event)">
   <div class="modal-box">
     <div class="modal-header">
@@ -1150,7 +1109,6 @@ const API = "https://script.google.com/macros/s/AKfycbxHOHFphZ-CktEMNCDVF9Yg591p
 let currentProveedores = [];
 let casoDestacadoProvider = null;
 
-// ── MEJORA 1: CANVAS RED DE NODOS ANIMADA EN HERO ─────────────
 (function() {
   const canvas = document.getElementById('heroCanvas');
   if (!canvas) return;
@@ -1173,7 +1131,6 @@ let casoDestacadoProvider = null;
   function draw() {
     const w = canvas.width, h = canvas.height;
     ctx.clearRect(0, 0, w, h);
-    // Lines between close nodes
     for (let i = 0; i < nodes.length; i++) {
       for (let j = i + 1; j < nodes.length; j++) {
         const dx = nodes[i].x - nodes[j].x;
@@ -1190,7 +1147,6 @@ let casoDestacadoProvider = null;
         }
       }
     }
-    // Dots
     ctx.globalAlpha = .75;
     nodes.forEach(nd => {
       ctx.beginPath();
@@ -1210,7 +1166,6 @@ let casoDestacadoProvider = null;
   setTimeout(draw, 100);
 })();
 
-// ── MEJORA 2: CONTADORES ANIMADOS ─────────────────────────────
 function countUp(el, target, duration) {
   if (!el) return;
   const t0 = performance.now();
@@ -1223,9 +1178,6 @@ function countUp(el, target, duration) {
   requestAnimationFrame(step);
 }
 
-// ── RING SVG HELPER ────────────────────────────────────────────
-// Genera un anillo circular SVG para el score.
-// size: diámetro total px  |  sw: stroke-width px
 function makeRing(score, size, sw) {
   size = size || 44;
   sw   = sw   || 4.5;
@@ -1248,7 +1200,6 @@ function makeRing(score, size, sw) {
   `</div>`;
 }
 
-// ── SCORE HELPERS ──────────────────────────────────────────────
 function scoreClass(s) {
   if (!s) return 'bajo';
   return s >= 65 ? 'alto' : s >= 40 ? 'medio' : 'bajo';
@@ -1267,7 +1218,6 @@ function formatMonto(m) {
   return 'S/. ' + parseFloat(m).toLocaleString('es-PE', {minimumFractionDigits:0, maximumFractionDigits:0});
 }
 
-// ── MEJORA 3: TABLA CON RINGS ──────────────────────────────────
 function renderTable(proveedores) {
   if (!proveedores || proveedores.length === 0) {
     document.getElementById('tableContainer').innerHTML = `
@@ -1306,7 +1256,6 @@ function renderTable(proveedores) {
   document.getElementById('tableContainer').innerHTML = html;
 }
 
-// ── VER DETALLE ────────────────────────────────────────────────
 function verDetalle(i) {
   const p = currentProveedores[i];
   document.getElementById('resultsArea').style.display = 'none';
@@ -1316,21 +1265,17 @@ function verDetalle(i) {
   document.getElementById('detailName').textContent = p.nombre || '—';
   document.getElementById('detailMeta').textContent  = `RUC: ${p.ruc || '—'}`;
 
-  // Ring grande en el header
   document.getElementById('detailRingBig').innerHTML = makeRing(s, 80, 7);
 
-  // Barra de progreso
   const bar = document.getElementById('detailScoreBar');
   bar.style.width      = '0%';
   bar.style.background = scoreColor(s);
   setTimeout(() => { bar.style.width = s + '%'; }, 100);
 
-  // Datos para el botón de compartir
   const shareBtn = document.getElementById('shareBtn');
   shareBtn.dataset.ruc    = p.ruc    || '';
   shareBtn.dataset.nombre = p.nombre || '';
 
-  // Dimensiones con tarjetas mejoradas
   const dimsBox = document.getElementById('dimsBox');
   if (p.dims) {
     dimsBox.style.display = 'grid';
@@ -1375,7 +1320,6 @@ function volverLista() {
   document.getElementById('contratosContainer').innerHTML = '';
 }
 
-// ── CARGAR CONTRATOS ───────────────────────────────────────────
 async function cargarContratos(ruc) {
   const cont = document.getElementById('contratosContainer');
   cont.innerHTML = '<div class="loading visible"><div class="spinner"></div>Cargando contratos...</div>';
@@ -1412,14 +1356,16 @@ async function cargarContratos(ruc) {
   }
 }
 
-// ── BUSCAR ─────────────────────────────────────────────────────
+// ── BUSCAR — con scroll automático al área de resultados ───────
 async function buscar() {
   const q = document.getElementById('searchInput').value.trim();
   if (!q) return;
   mostrarLoading();
-  document.getElementById('resultsTitle').textContent       = `Resultados para "${q}"`;
-  document.getElementById('resultsInfo').className          = 'results-info visible';
-  document.getElementById('resultsInfo').textContent        = 'Mostrando proveedores que coinciden con tu búsqueda. Haz clic en cualquier fila para ver el análisis completo.';
+  document.getElementById('resultsTitle').textContent = `Resultados para "${q}"`;
+  document.getElementById('resultsInfo').className    = 'results-info visible';
+  document.getElementById('resultsInfo').textContent  = 'Mostrando proveedores que coinciden con tu búsqueda. Haz clic en cualquier fila para ver el análisis completo.';
+  // Scroll suave al área de resultados
+  document.getElementById('resultsArea').scrollIntoView({ behavior: 'smooth', block: 'start' });
   try {
     const res  = await fetch(`${API}?action=buscar&q=${encodeURIComponent(q)}`);
     const data = await res.json();
@@ -1440,7 +1386,6 @@ document.getElementById('searchInput').addEventListener('keydown', e => {
   if (e.key === 'Enter') buscar();
 });
 
-// ── MEJORA 4: TOP RIESGO → TAMBIÉN PUEBLA EL CASO DESTACADO ───
 async function cargarTopRiesgo() {
   try {
     const res = await fetch(`${API}?action=top-riesgo`);
@@ -1450,7 +1395,6 @@ async function cargarTopRiesgo() {
       renderTable([]);
       return;
     }
-    // Sidebar con rings
     let html = '';
     top.forEach((p, i) => {
       html += `<div class="top-item" onclick="verDetalleTop(${i})">
@@ -1462,7 +1406,6 @@ async function cargarTopRiesgo() {
     ocultarLoading();
     renderTable(top);
     window._topData = top;
-    // Caso destacado con el #1
     if (top[0]) popularCasoDestacado(top[0]);
   } catch(e) {
     document.getElementById('topRiesgoList').innerHTML = '<p style="font-size:13px;color:#999;text-align:center;padding:12px">Error al cargar</p>';
@@ -1470,7 +1413,6 @@ async function cargarTopRiesgo() {
   }
 }
 
-// ── CASO DESTACADO ─────────────────────────────────────────────
 function popularCasoDestacado(p) {
   casoDestacadoProvider = p;
   const s = p.score || 0;
@@ -1478,12 +1420,10 @@ function popularCasoDestacado(p) {
   document.getElementById('casoNombre').textContent = p.nombre || '—';
   document.getElementById('casoRucTag').textContent = `RUC: ${p.ruc||'—'} · Score: ${s}/100`;
 
-  // Ring grande con etiqueta
   document.getElementById('casoRingWrap').innerHTML = makeRing(s, 72, 6.5) +
     `<div style="font-size:9px;color:rgba(255,255,255,.3);text-align:center;margin-top:3px;
       font-family:'Source Code Pro',monospace;text-transform:uppercase;letter-spacing:.08em">Índice</div>`;
 
-  // Facts desde dims (o placeholder)
   let facts = '';
   if (p.dims) {
     const labelMap = { antiguedad:'Antigüedad empresarial', concentracion:'Concentración', volumen:'Volumen contratado', competencia:'Competencia' };
@@ -1523,7 +1463,6 @@ function ocultarLoading() {
   document.getElementById('loadingSpinner').className = 'loading';
 }
 
-// ── MENOR RIESGO ───────────────────────────────────────────────
 async function cargarMenorRiesgo() {
   try {
     const res  = await fetch(`${API}?action=menor-riesgo`);
@@ -1559,7 +1498,6 @@ function volverHome() {
   window.scrollTo(0, 0);
 }
 
-// ── COMPARTIR PROVEEDOR ────────────────────────────────────────
 function compartirProveedor() {
   const btn    = document.getElementById('shareBtn');
   const ruc    = btn.dataset.ruc    || '';
@@ -1578,7 +1516,6 @@ function compartirProveedor() {
   }
 }
 
-// ── PROGRESO IA ────────────────────────────────────────────────
 async function cargarProgreso() {
   try {
     const res  = await fetch(`${API}?action=progreso`);
@@ -1594,15 +1531,13 @@ async function cargarProgreso() {
   }
 }
 
-// ── FECHA DINÁMICA ─────────────────────────────────────────────
 (function() {
   const hoy   = new Date();
   const opts  = { day:'numeric', month:'long', year:'numeric' };
   document.getElementById('fechaActualizacion').textContent =
-    `Datos actualizados al ${hoy.toLocaleDateString('es-PE', opts)} · Fuente: OSCE, SUNAT y más`;
+    `Datos actualizados al ${hoy.toLocaleDateString('es-PE', opts)} · Fuente: OSCE, RNP y más`;
 })();
 
-// ── TYPEWRITER ─────────────────────────────────────────────────
 (function() {
   const input  = document.getElementById('searchInput');
   const frases = [
@@ -1629,7 +1564,6 @@ async function cargarProgreso() {
   setTimeout(typeWriter, 1200);
 })();
 
-// ── MODAL ──────────────────────────────────────────────────────
 let montoActual = 25;
 function seleccionarMonto(btn, val) {
   document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('selected'));
@@ -1650,12 +1584,10 @@ function cerrarDonacion()    { document.getElementById('donacionModal').classLis
 function cerrarSiOverlay(e)  { if (e.target === document.getElementById('donacionModal')) cerrarDonacion(); }
 function procesarDonacion()  { window.location.href = 'apoya.html'; }
 
-// ── INIT ───────────────────────────────────────────────────────
 cargarTopRiesgo();
 cargarMenorRiesgo();
 cargarProgreso();
 
-// Contadores animados (inicio con pequeño delay para efecto visual)
 setTimeout(() => {
   countUp(document.getElementById('statContratos'),  200523, 2000);
   countUp(document.getElementById('statProveedores'), 60140, 1800);
